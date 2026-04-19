@@ -1,5 +1,6 @@
 package com.jfb.jottasburger.order.model;
 
+import com.jfb.jottasburger.exception.InvalidOrderStatusTransitionException;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -64,7 +65,18 @@ public class Order {
     }
 
     public void updateStatus(OrderStatus newStatus) {
-        validateStatusTransition(newStatus);
+        if (this.status == newStatus) {
+            throw new InvalidOrderStatusTransitionException(
+                    "Order is already in status " + newStatus
+            );
+        }
+
+        if (!this.status.canTransitionTo(newStatus)) {
+            throw new InvalidOrderStatusTransitionException(
+                    "Cannot change order status from " + this.status + " to " + newStatus
+            );
+        }
+
         this.status = newStatus;
     }
 
@@ -72,15 +84,5 @@ public class Order {
         this.totalAmount = this.items.stream()
                 .map(OrderItem::getTotalPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
-
-    private void validateStatusTransition(OrderStatus newStatus) {
-        if (this.status == OrderStatus.CANCELED || this.status == OrderStatus.DELIVERED) {
-            throw new IllegalStateException("Finalized orders cannot change status");
-        }
-
-        if (this.status == newStatus) {
-            throw new IllegalStateException("Order is already in the requested status");
-        }
     }
 }

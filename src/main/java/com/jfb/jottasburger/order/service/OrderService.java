@@ -64,13 +64,7 @@ public class OrderService {
     @Transactional
     public OrderResponse updateStatus(Long id, UpdateOrderStatusRequest request) {
         Order order = findOrderById(id);
-
-        try {
-            order.updateStatus(request.status());
-        } catch (IllegalStateException ex) {
-            throw new BusinessException(ex.getMessage());
-        }
-
+        order.updateStatus(request.status());
         return toResponse(order);
     }
 
