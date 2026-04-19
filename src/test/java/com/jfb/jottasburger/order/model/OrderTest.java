@@ -16,7 +16,7 @@ class OrderTest {
     }
 
     @Test
-    void shouldAllowValidStatusTransition() {
+    void shouldAllowTransitionFromReceivedToInPreparation() {
         Order order = new Order("ORD-123");
 
         order.updateStatus(OrderStatus.IN_PREPARATION);
@@ -25,7 +25,16 @@ class OrderTest {
     }
 
     @Test
-    void shouldNotAllowInvalidStatusTransition() {
+    void shouldAllowTransitionFromReceivedToCanceled() {
+        Order order = new Order("ORD-123");
+
+        order.updateStatus(OrderStatus.CANCELED);
+
+        assertEquals(OrderStatus.CANCELED, order.getStatus());
+    }
+
+    @Test
+    void shouldNotAllowInvalidTransitionFromReceivedToDelivered() {
         Order order = new Order("ORD-123");
 
         assertThrows(
@@ -47,6 +56,7 @@ class OrderTest {
     @Test
     void shouldNotAllowTransitionAfterDelivered() {
         Order order = new Order("ORD-123");
+
         order.updateStatus(OrderStatus.IN_PREPARATION);
         order.updateStatus(OrderStatus.READY);
         order.updateStatus(OrderStatus.OUT_FOR_DELIVERY);
