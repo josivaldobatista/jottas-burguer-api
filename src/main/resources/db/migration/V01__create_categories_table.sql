@@ -1,3 +1,5 @@
+-- V01__create_category_table.sql
+
 CREATE TABLE categories
 (
     id         BIGSERIAL PRIMARY KEY,
