@@ -1,5 +1,6 @@
 package com.jfb.jottasburger.order.model;
 
+import com.jfb.jottasburger.common.model.BaseEntity;
 import com.jfb.jottasburger.exception.InvalidOrderStatusTransitionException;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -7,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
 @Table(name = "orders")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Order {
+public class Order extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,28 +34,10 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private final List<OrderItem> items = new ArrayList<>();
 
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private Instant createdAt;
-
-    @Column(name = "updated_at", nullable = false)
-    private Instant updatedAt;
-
     public Order(String orderNumber) {
         this.orderNumber = orderNumber;
         this.status = OrderStatus.RECEIVED;
         this.totalAmount = BigDecimal.ZERO;
-    }
-
-    @PrePersist
-    public void prePersist() {
-        Instant now = Instant.now();
-        this.createdAt = now;
-        this.updatedAt = now;
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        this.updatedAt = Instant.now();
     }
 
     public void addItem(OrderItem item) {
