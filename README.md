@@ -1,132 +1,213 @@
-# 🍔 Jottas Burger API
+# 🍔 JottasBurger API
 
-Uma **API Rest moderna** para gerenciamento de uma hamburgueria, desenvolvida como MVP (Minimum Viable Product) e portfólio.
-
-O projeto foi construído com as melhores práticas do mercado Java/Spring Boot em 2026, utilizando arquitetura em camadas por domínio (Package by Feature).
+Backend API para gestão de uma hamburgueria, desenvolvida com **Java 21** e **Spring Boot**, com foco em boas práticas de mercado, arquitetura limpa e evolução incremental.
 
 ---
 
-## ✨ Funcionalidades Atuais
+## 📌 Objetivo
 
-- **Clientes** (CRUD completo + Soft Delete)
-- **Produtos** (CRUD completo + Soft Delete + imagem)
-- **Pedidos** (CRUD + alteração de status + cálculo automático de total)
-- Validações avançadas com Bean Validation
-- Tratamento global de exceções
-- Soft Delete em todas as entidades
-- Paginação nas listagens
-- Logs estruturados
-- Documentação interativa com Swagger
+Este projeto foi desenvolvido como **portfólio profissional**, simulando um sistema real de uma hamburgueria, incluindo:
 
----
+* Catálogo de produtos
+* Gestão de pedidos
+* Regras de negócio
+* Estrutura escalável e organizada
 
-## 🛠 Tecnologias Utilizadas
-
-| Tecnologia              | Versão | Propósito                          |
-|------------------------|--------|------------------------------------|
-| **Java**               | 21     | Linguagem principal                |
-| **Spring Boot**        | 3.5.13 | Framework principal                |
-| **Spring Data JPA**    | -      | Persistência                       |
-| **Hibernate**          | -      | ORM                                |
-| **PostgreSQL**         | 16     | Banco de dados                     |
-| **Flyway**             | -      | Migrações de banco                 |
-| **Lombok**             | -      | Redução de boilerplate             |
-| **MapStruct**          | -      | Mapeamento de DTOs (em breve)     |
-| **Springdoc OpenAPI**  | 3.0.2  | Documentação Swagger               |
-| **Docker**             | -      | Containerização                    |
-| **Maven**              | -      | Gerenciador de dependências        |
-
----
-**Futuro / Em planejamento:**
-- Spring Security + JWT
-- Autenticação e Autorização
-- Testes unitários e de integração (JUnit 5 + Testcontainers)
-- Cache (Redis)
-- CI/CD
-- Deploy na nuvem (Railway ou Render)
+A proposta é evoluir o sistema progressivamente, aplicando conceitos usados no mercado.
 
 ---
 
-## 🏗 Arquitetura
+## 🧱 Arquitetura
 
-- **Package by Feature** (organização por domínio)
-- Camadas: `Controller → Service → Repository → Model`
-- DTOs de entrada e saída separados das entidades
-- Soft Delete em todas as entidades principais
-- Tratamento centralizado de exceções
-- Uso de Records nos DTOs de resposta
+O projeto segue uma abordagem de **monólito modular**, organizado por contexto de negócio:
 
-```plaintext
-com.jottas.burger
-├── JottasBurgerApplication.java
-│
-├── core/
-│   ├── config/
-│   ├── exception/
-│   ├── security/
-│   └── util/
-│
-└── domain/
-    ├── product/
-    │   ├── controller/
-    │   ├── service/
-    │   ├── repository/
-    │   ├── dto/
-    │   ├── model/
-    │   └── mapper/
-    │
-    ├── order/
-    │   ├── controller/
-    │   ├── service/
-    │   ├── repository/
-    │   ├── dto/
-    │   ├── model/
-    │   └── mapper/
-    │
-    ├── customer/
-    │   ├── controller/
-    │   ├── service/
-    │   ├── repository/
-    │   ├── dto/
-    │   ├── model/
-    │   └── mapper/
-    │
-    └── user/
-        ├── controller/
-        ├── service/
-        ├── repository/
-        ├── dto/
-        ├── model/
-        └── mapper/
+```
+com.jfb.jottasburger
+├── category
+├── product
+├── order
+├── common
+├── config
+└── exception
 ```
 
+Cada módulo contém:
+
+* `controller` → entrada da API
+* `service` → regras de negócio
+* `repository` → acesso a dados
+* `dto` → contratos da API
+* `model` → entidades JPA
 
 ---
 
-## **Como Executar o Projeto**
+## ⚙️ Tecnologias
 
-### **Pré-requisitos**
+* Java 21
+* Spring Boot 3.5
+* Spring Web
+* Spring Data JPA
+* Spring Security
+* PostgreSQL
+* Flyway (versionamento de banco)
+* Spring Validation
+* SpringDoc OpenAPI (Swagger)
+* Lombok
+* Testcontainers
+* Docker (planejado)
 
-- **Java 21**
-- **Maven**
-- **Docker** (opcional, para rodar o PostgreSQL em um contêiner)
-- **PostgreSQL** (se não estiver usando Docker)
+---
 
-### **Passos para Execução**
+## 🚀 Funcionalidades (MVP)
 
-1. **Clone o repositório**:
-   ```bash
-   git clone https://github.com/seu-usuario/jottas-burguer.git
-   cd jottas-burguer
+### 📂 Categorias
 
-Se estiver usando Docker, inicie o contêiner do PostgreSQL:
+* Criar categoria
+* Listar categorias ativas
+* Buscar por ID
+* Atualizar nome
+* Ativar / desativar
 
-bash
-Copy
-docker-compose up -d
+### 🍔 Produtos *(em desenvolvimento)*
 
-### **Acesse a API**
-A API estará disponível em http://localhost:8080.
+* Cadastro de produtos
+* Associação com categoria
+* Ativação / desativação
+* Listagem de produtos ativos
 
-Acesse a documentação da API (Swagger UI) em: http://localhost:8080/swagger-ui/index.html
-Acesse a documentação da API api-docs em: http://localhost:8080/api-docs
+### 📦 Pedidos *(planejado)*
+
+* Criação de pedido
+* Itens de pedido
+* Cálculo de total
+* Controle de status
+
+---
+
+## 🔄 Status do Pedido *(planejado)*
+
+* RECEIVED
+* IN_PREPARATION
+* READY
+* OUT_FOR_DELIVERY
+* DELIVERED
+* CANCELED
+
+---
+
+## 🗄️ Banco de Dados
+
+* PostgreSQL
+* Controle de schema com Flyway
+* Migrations versionadas
+
+Exemplo:
+
+```
+V1__create_categories_table.sql
+```
+
+---
+
+## 📄 Documentação da API
+
+Após iniciar a aplicação:
+
+* Swagger UI:
+  http://localhost:8080/swagger-ui.html
+
+* OpenAPI JSON:
+  http://localhost:8080/api-docs
+
+---
+
+## ▶️ Como rodar o projeto
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/jottasburger.git
+cd jottasburger
+```
+
+### 2. Subir o PostgreSQL
+
+Exemplo com Docker:
+
+```bash
+docker run --name postgres-jottas \
+  -e POSTGRES_DB=jottasburger \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -p 5432:5432 \
+  -d postgres
+```
+
+### 3. Configurar `application.yml`
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jottasburger
+    username: postgres
+    password: postgres
+```
+
+### 4. Rodar a aplicação
+
+```bash
+./mvnw spring-boot:run
+```
+
+---
+
+## 🧪 Testes
+
+* Testes unitários
+* Testes de integração com Testcontainers *(planejado)*
+
+---
+
+## 🔐 Segurança
+
+Atualmente:
+
+* endpoints liberados para desenvolvimento
+
+Planejado:
+
+* autenticação com JWT
+* controle de acesso por perfil (ADMIN / CUSTOMER)
+
+---
+
+## 📈 Evolução futura
+
+* Autenticação com JWT
+* Carrinho de compras
+* Cupons de desconto
+* Taxa de entrega por região
+* Integração com pagamento
+* Cache com Redis
+* Mensageria (eventos de pedido)
+* Observabilidade avançada
+* CI/CD
+
+---
+
+## 💡 Decisões técnicas
+
+* Uso de **Flyway** ao invés de `ddl-auto`
+* Separação por módulos de negócio
+* DTOs para entrada/saída (não expor entidades)
+* `open-in-view: false`
+* Tratamento global de exceções
+
+---
+
+## 📬 Contato
+
+Desenvolvido por **João (JFB)**
+Projeto para fins de estudo e portfólio.
+
+---
