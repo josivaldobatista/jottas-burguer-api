@@ -2,17 +2,17 @@ package com.jfb.jottasburger.order.service;
 
 import com.jfb.jottasburger.exception.BusinessException;
 import com.jfb.jottasburger.exception.ResourceNotFoundException;
-import com.jfb.jottasburger.order.dto.CreateOrderItemRequest;
-import com.jfb.jottasburger.order.dto.CreateOrderRequest;
-import com.jfb.jottasburger.order.dto.OrderItemResponse;
-import com.jfb.jottasburger.order.dto.OrderResponse;
-import com.jfb.jottasburger.order.dto.UpdateOrderStatusRequest;
+import com.jfb.jottasburger.order.dto.*;
 import com.jfb.jottasburger.order.model.Order;
 import com.jfb.jottasburger.order.model.OrderItem;
+import com.jfb.jottasburger.order.repository.OrderRepository;
+import com.jfb.jottasburger.order.repository.OrderSpecifications;
 import com.jfb.jottasburger.product.model.Product;
 import com.jfb.jottasburger.product.repository.ProductRepository;
-import com.jfb.jottasburger.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,6 +59,16 @@ public class OrderService {
                 .stream()
                 .map(this::toResponse)
                 .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public Page<OrderResponse> findAll(OrderFilterRequest filter, Pageable pageable) {
+        Specification<Order> specification = Specification.allOf(
+                OrderSpecifications.hasStatus(filter.status())
+        );
+
+        return orderRepository.findAll(specification, pageable)
+                .map(this::toResponse);
     }
 
     @Transactional
