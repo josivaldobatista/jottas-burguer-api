@@ -115,6 +115,8 @@ Após iniciar a aplicação:
 
 * Swagger UI:
   http://localhost:8080/swagger-ui.html
+* Ou: http://localhost:8080/swagger-ui/index.html
+
 
 * OpenAPI JSON:
   http://localhost:8080/api-docs

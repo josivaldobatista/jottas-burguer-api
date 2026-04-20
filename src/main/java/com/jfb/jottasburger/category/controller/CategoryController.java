@@ -4,6 +4,8 @@ import com.jfb.jottasburger.category.dto.CategoryResponse;
 import com.jfb.jottasburger.category.dto.CreateCategoryRequest;
 import com.jfb.jottasburger.category.dto.UpdateCategoryRequest;
 import com.jfb.jottasburger.category.service.CategoryService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,11 +17,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/categories")
 @RequiredArgsConstructor
+@Tag(name = "Categories", description = "Operations for managing product categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
 
     @PostMapping
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<CategoryResponse> create(@Valid @RequestBody CreateCategoryRequest request) {
         CategoryResponse response = categoryService.create(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);

@@ -4,6 +4,7 @@ import com.jfb.jottasburger.product.dto.CreateProductRequest;
 import com.jfb.jottasburger.product.dto.ProductResponse;
 import com.jfb.jottasburger.product.dto.UpdateProductRequest;
 import com.jfb.jottasburger.product.service.ProductService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
+@Tag(name = "Products", description = "Operations for managing burger shop products")
 public class ProductController {
 
     private final ProductService productService;

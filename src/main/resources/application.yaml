@@ -27,6 +27,16 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
+    operations-sorter: alpha
+    tags-sorter: alpha
+    display-request-duration: true
+    doc-expansion: none
+
+info:
+  app:
+    name: JottasBurger API
+    description: Backend API for burger shop management built with Spring Boot.
+    version: v1
 
 management:
   endpoints:
