@@ -1,15 +1,18 @@
 package com.jfb.jottasburger.product.controller;
 
 import com.jfb.jottasburger.product.dto.CreateProductRequest;
+import com.jfb.jottasburger.product.dto.ProductFilterRequest;
 import com.jfb.jottasburger.product.dto.ProductResponse;
 import com.jfb.jottasburger.product.dto.UpdateProductRequest;
 import com.jfb.jottasburger.product.service.ProductService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +29,17 @@ public class ProductController {
     public ResponseEntity<ProductResponse> create(@Valid @RequestBody CreateProductRequest request) {
         ProductResponse response = productService.create(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<Page<ProductResponse>> search(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Boolean active,
+            @RequestParam(required = false) Long categoryId,
+            @PageableDefault(size = 10, sort = "name") Pageable pageable
+    ) {
+        ProductFilterRequest filter = new ProductFilterRequest(name, active, categoryId);
+        return ResponseEntity.ok(productService.findAll(filter, pageable));
     }
 
     @GetMapping("/active")

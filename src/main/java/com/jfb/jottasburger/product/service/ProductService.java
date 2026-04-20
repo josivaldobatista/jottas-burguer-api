@@ -5,11 +5,16 @@ import com.jfb.jottasburger.category.repository.CategoryRepository;
 import com.jfb.jottasburger.exception.BusinessException;
 import com.jfb.jottasburger.exception.ResourceNotFoundException;
 import com.jfb.jottasburger.product.dto.CreateProductRequest;
+import com.jfb.jottasburger.product.dto.ProductFilterRequest;
 import com.jfb.jottasburger.product.dto.ProductResponse;
 import com.jfb.jottasburger.product.dto.UpdateProductRequest;
 import com.jfb.jottasburger.product.model.Product;
 import com.jfb.jottasburger.product.repository.ProductRepository;
+import com.jfb.jottasburger.product.repository.ProductSpecifications;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,6 +40,19 @@ public class ProductService {
 
         Product savedProduct = productRepository.save(product);
         return toResponse(savedProduct);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ProductResponse> findAll(ProductFilterRequest filter, Pageable pageable) {
+        Specification<Product> specification = Specification
+                .allOf(
+                        ProductSpecifications.nameContains(filter.name()),
+                        ProductSpecifications.hasActive(filter.active()),
+                        ProductSpecifications.hasCategoryId(filter.categoryId())
+                );
+
+        return productRepository.findAll(specification, pageable)
+                .map(this::toResponse);
     }
 
     @Transactional(readOnly = true)
