@@ -1,14 +1,13 @@
 package com.jfb.jottasburger.product.controller;
 
+import com.jfb.jottasburger.common.dto.PageResponse;
 import com.jfb.jottasburger.product.dto.CreateProductRequest;
 import com.jfb.jottasburger.product.dto.ProductFilterRequest;
 import com.jfb.jottasburger.product.dto.ProductResponse;
 import com.jfb.jottasburger.product.dto.UpdateProductRequest;
 import com.jfb.jottasburger.product.service.ProductService;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -20,7 +19,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
-@Tag(name = "Products", description = "Operations for managing burger shop products")
 public class ProductController {
 
     private final ProductService productService;
@@ -31,25 +29,20 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
+    @GetMapping("/active")
+    public ResponseEntity<List<ProductResponse>> findAllActive() {
+        return ResponseEntity.ok(productService.findAllActive());
+    }
+
     @GetMapping("/search")
-    public ResponseEntity<Page<ProductResponse>> search(
+    public ResponseEntity<PageResponse<ProductResponse>> search(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) Boolean active,
             @RequestParam(required = false) Long categoryId,
             @PageableDefault(size = 10, sort = "name") Pageable pageable
     ) {
         ProductFilterRequest filter = new ProductFilterRequest(name, active, categoryId);
-        return ResponseEntity.ok(productService.findAll(filter, pageable));
-    }
-
-    @GetMapping("/active")
-    public ResponseEntity<List<ProductResponse>> findAllActive() {
-        return ResponseEntity.ok(productService.findAllActive());
-    }
-
-    @GetMapping
-    public ResponseEntity<List<ProductResponse>> findAll() {
-        return ResponseEntity.ok(productService.findAll());
+        return ResponseEntity.ok(PageResponse.from(productService.findAll(filter, pageable)));
     }
 
     @GetMapping("/{id}")

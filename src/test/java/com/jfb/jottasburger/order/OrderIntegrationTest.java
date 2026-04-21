@@ -66,8 +66,8 @@ class OrderIntegrationTest {
         mockMvc.perform(get("/api/orders/me")
                         .header("Authorization", "Bearer " + customerToken))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.content").isArray())
-                .andExpect(jsonPath("$.content.length()").value(greaterThanOrEqualTo(1)));
+                .andExpect(jsonPath("$.data").isArray())
+                .andExpect(jsonPath("$.data.length()").value(greaterThanOrEqualTo(1)));
     }
 
     @Test

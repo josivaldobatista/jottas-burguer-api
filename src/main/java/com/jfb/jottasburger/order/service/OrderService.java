@@ -6,18 +6,21 @@ import com.jfb.jottasburger.exception.ResourceNotFoundException;
 import com.jfb.jottasburger.order.dto.*;
 import com.jfb.jottasburger.order.model.Order;
 import com.jfb.jottasburger.order.model.OrderItem;
+import com.jfb.jottasburger.order.repository.OrderItemRepository;
 import com.jfb.jottasburger.order.repository.OrderRepository;
 import com.jfb.jottasburger.order.repository.OrderSpecifications;
 import com.jfb.jottasburger.product.model.Product;
 import com.jfb.jottasburger.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +30,7 @@ public class OrderService {
     private final ProductRepository productRepository;
     private final OrderNumberGenerator orderNumberGenerator;
     private final AuthenticatedUserService authenticatedUserService;
+    private final OrderItemRepository orderItemRepository;
 
     @Transactional
     public OrderResponse create(CreateOrderRequest request) {
@@ -67,12 +71,18 @@ public class OrderService {
 
     @Transactional(readOnly = true)
     public Page<OrderResponse> findAll(OrderFilterRequest filter, Pageable pageable) {
-        Specification<Order> specification = Specification.allOf(
+        var specification = Specification.allOf(
                 OrderSpecifications.hasStatus(filter.status())
         );
 
-        return orderRepository.findAll(specification, pageable)
-                .map(this::toResponse);
+        var page = orderRepository.findAll(specification, pageable);
+        var responses = toResponseList(page.getContent());
+
+        return new PageImpl<>(
+                responses,
+                pageable,
+                page.getTotalElements()
+        );
     }
 
     @Transactional(readOnly = true)
@@ -89,13 +99,19 @@ public class OrderService {
     public Page<OrderResponse> findMyOrders(OrderFilterRequest filter, Pageable pageable) {
         var authenticatedUser = authenticatedUserService.getAuthenticatedUser();
 
-        Specification<Order> specification = Specification.allOf(
+        var specification = Specification.allOf(
                 OrderSpecifications.hasUserId(authenticatedUser.getId()),
                 OrderSpecifications.hasStatus(filter.status())
         );
 
-        return orderRepository.findAll(specification, pageable)
-                .map(this::toResponse);
+        var page = orderRepository.findAll(specification, pageable);
+        var responses = toResponseList(page.getContent());
+
+        return new PageImpl<>(
+                responses,
+                pageable,
+                page.getTotalElements()
+        );
     }
 
     @Transactional
@@ -121,9 +137,46 @@ public class OrderService {
                 .orElseThrow(() -> new ResourceNotFoundException("Order not found with id: " + id));
     }
 
+    private List<OrderResponse> toResponseList(List<Order> orders) {
+        List<Long> orderIds = orders.stream()
+                .map(Order::getId)
+                .toList();
+
+        var itemsByOrderId = orderItemRepository.findByOrderIdIn(orderIds)
+                .stream()
+                .collect(Collectors.groupingBy(item -> item.getOrder().getId()));
+
+        return orders.stream()
+                .map(order -> toResponse(order, itemsByOrderId.getOrDefault(order.getId(), List.of())))
+                .toList();
+    }
+
     private OrderResponse toResponse(Order order) {
         List<OrderItemResponse> itemResponses = order.getItems()
                 .stream()
+                .map(item -> new OrderItemResponse(
+                        item.getId(),
+                        item.getProductId(),
+                        item.getProductName(),
+                        item.getUnitPrice(),
+                        item.getQuantity(),
+                        item.getTotalPrice()
+                ))
+                .toList();
+
+        return new OrderResponse(
+                order.getId(),
+                order.getOrderNumber(),
+                order.getStatus(),
+                order.getTotalAmount(),
+                itemResponses,
+                order.getCreatedAt(),
+                order.getUpdatedAt()
+        );
+    }
+
+    private OrderResponse toResponse(Order order, List<OrderItem> items) {
+        List<OrderItemResponse> itemResponses = items.stream()
                 .map(item -> new OrderItemResponse(
                         item.getId(),
                         item.getProductId(),
