@@ -1,6 +1,8 @@
 package com.jfb.jottasburger.order.model;
 
 import com.jfb.jottasburger.exception.InvalidOrderStatusTransitionException;
+import com.jfb.jottasburger.user.model.Role;
+import com.jfb.jottasburger.user.model.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,14 +12,14 @@ class OrderTest {
 
     @Test
     void shouldStartWithReceivedStatus() {
-        Order order = new Order("ORD-123");
+        Order order = new Order("ORD-123", buildUser());
 
         assertEquals(OrderStatus.RECEIVED, order.getStatus());
     }
 
     @Test
     void shouldAllowTransitionFromReceivedToInPreparation() {
-        Order order = new Order("ORD-123");
+        Order order = new Order("ORD-123", buildUser());
 
         order.updateStatus(OrderStatus.IN_PREPARATION);
 
@@ -26,7 +28,7 @@ class OrderTest {
 
     @Test
     void shouldAllowTransitionFromReceivedToCanceled() {
-        Order order = new Order("ORD-123");
+        Order order = new Order("ORD-123", buildUser());
 
         order.updateStatus(OrderStatus.CANCELED);
 
@@ -35,7 +37,7 @@ class OrderTest {
 
     @Test
     void shouldNotAllowInvalidTransitionFromReceivedToDelivered() {
-        Order order = new Order("ORD-123");
+        Order order = new Order("ORD-123", buildUser());
 
         assertThrows(
                 InvalidOrderStatusTransitionException.class,
@@ -45,7 +47,7 @@ class OrderTest {
 
     @Test
     void shouldNotAllowSameStatusTransition() {
-        Order order = new Order("ORD-123");
+        Order order = new Order("ORD-123", buildUser());
 
         assertThrows(
                 InvalidOrderStatusTransitionException.class,
@@ -55,7 +57,7 @@ class OrderTest {
 
     @Test
     void shouldNotAllowTransitionAfterDelivered() {
-        Order order = new Order("ORD-123");
+        Order order = new Order("ORD-123", buildUser());
 
         order.updateStatus(OrderStatus.IN_PREPARATION);
         order.updateStatus(OrderStatus.READY);
@@ -65,6 +67,15 @@ class OrderTest {
         assertThrows(
                 InvalidOrderStatusTransitionException.class,
                 () -> order.updateStatus(OrderStatus.CANCELED)
+        );
+    }
+
+    private User buildUser() {
+        return new User(
+                "Test User",
+                "test@jottasburger.com",
+                "encoded-password",
+                Role.CUSTOMER
         );
     }
 }

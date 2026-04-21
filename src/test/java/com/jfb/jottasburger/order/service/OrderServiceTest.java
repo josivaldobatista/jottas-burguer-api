@@ -1,5 +1,6 @@
 package com.jfb.jottasburger.order.service;
 
+import com.jfb.jottasburger.auth.service.AuthenticatedUserService;
 import com.jfb.jottasburger.exception.BusinessException;
 import com.jfb.jottasburger.exception.ResourceNotFoundException;
 import com.jfb.jottasburger.order.dto.CreateOrderItemRequest;
@@ -11,6 +12,8 @@ import com.jfb.jottasburger.order.model.OrderStatus;
 import com.jfb.jottasburger.order.repository.OrderRepository;
 import com.jfb.jottasburger.product.model.Product;
 import com.jfb.jottasburger.product.repository.ProductRepository;
+import com.jfb.jottasburger.user.model.Role;
+import com.jfb.jottasburger.user.model.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -38,6 +41,9 @@ class OrderServiceTest {
     @Mock
     private OrderNumberGenerator orderNumberGenerator;
 
+    @Mock
+    private AuthenticatedUserService authenticatedUserService;
+
     @InjectMocks
     private OrderService orderService;
 
@@ -53,6 +59,7 @@ class OrderServiceTest {
         when(product.getPrice()).thenReturn(new BigDecimal("25.00"));
         when(product.isActive()).thenReturn(true);
 
+        when(authenticatedUserService.getAuthenticatedUser()).thenReturn(buildUser());
         when(productRepository.findById(1L)).thenReturn(Optional.of(product));
         when(orderNumberGenerator.generate()).thenReturn("ORD-123");
         when(orderRepository.save(any(Order.class))).thenAnswer(invocation -> invocation.getArgument(0));
@@ -73,6 +80,7 @@ class OrderServiceTest {
                 List.of(new CreateOrderItemRequest(99L, 1))
         );
 
+        when(authenticatedUserService.getAuthenticatedUser()).thenReturn(buildUser());
         when(productRepository.findById(99L)).thenReturn(Optional.empty());
         when(orderNumberGenerator.generate()).thenReturn("ORD-123");
 
@@ -87,6 +95,8 @@ class OrderServiceTest {
 
         Product product = mock(Product.class);
         when(product.isActive()).thenReturn(false);
+
+        when(authenticatedUserService.getAuthenticatedUser()).thenReturn(buildUser());
         when(productRepository.findById(1L)).thenReturn(Optional.of(product));
         when(orderNumberGenerator.generate()).thenReturn("ORD-123");
 
@@ -95,7 +105,7 @@ class OrderServiceTest {
 
     @Test
     void shouldUpdateOrderStatusSuccessfully() {
-        Order order = new Order("ORD-123");
+        Order order = new Order("ORD-123", buildUser());
 
         when(orderRepository.findById(1L)).thenReturn(Optional.of(order));
 
@@ -105,5 +115,14 @@ class OrderServiceTest {
         );
 
         assertEquals(OrderStatus.IN_PREPARATION, response.status());
+    }
+
+    private User buildUser() {
+        return new User(
+                "Test User",
+                "test@jottasburger.com",
+                "encoded-password",
+                Role.CUSTOMER
+        );
     }
 }

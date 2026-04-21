@@ -1,5 +1,6 @@
 package com.jfb.jottasburger.order.service;
 
+import com.jfb.jottasburger.auth.service.AuthenticatedUserService;
 import com.jfb.jottasburger.exception.BusinessException;
 import com.jfb.jottasburger.exception.ResourceNotFoundException;
 import com.jfb.jottasburger.order.dto.*;
@@ -25,10 +26,13 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
     private final OrderNumberGenerator orderNumberGenerator;
+    private final AuthenticatedUserService authenticatedUserService;
 
     @Transactional
     public OrderResponse create(CreateOrderRequest request) {
-        Order order = new Order(orderNumberGenerator.generate());
+        var authenticatedUser = authenticatedUserService.getAuthenticatedUser();
+
+        Order order = new Order(orderNumberGenerator.generate(), authenticatedUser);
 
         for (CreateOrderItemRequest itemRequest : request.items()) {
             Product product = findActiveProductById(itemRequest.productId());
@@ -69,6 +73,16 @@ public class OrderService {
 
         return orderRepository.findAll(specification, pageable)
                 .map(this::toResponse);
+    }
+
+    @Transactional(readOnly = true)
+    public List<OrderResponse> findMyOrders() {
+        var authenticatedUser = authenticatedUserService.getAuthenticatedUser();
+
+        return orderRepository.findByUserIdOrderByCreatedAtDesc(authenticatedUser.getId())
+                .stream()
+                .map(this::toResponse)
+                .toList();
     }
 
     @Transactional

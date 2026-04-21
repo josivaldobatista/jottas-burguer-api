@@ -47,6 +47,12 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/categories/active").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/products/active").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/products/*").permitAll()
+
+                        .requestMatchers(HttpMethod.POST, "/api/orders").hasAnyRole("CUSTOMER", "ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/orders/me").hasAnyRole("CUSTOMER", "ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/orders/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/api/orders/*/status").hasRole("ADMIN")
+
                         .anyRequest().hasRole("ADMIN")
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

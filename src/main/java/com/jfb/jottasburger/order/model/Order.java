@@ -2,6 +2,7 @@ package com.jfb.jottasburger.order.model;
 
 import com.jfb.jottasburger.common.model.BaseEntity;
 import com.jfb.jottasburger.exception.InvalidOrderStatusTransitionException;
+import com.jfb.jottasburger.user.model.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -31,11 +32,16 @@ public class Order extends BaseEntity {
     @Column(name = "total_amount", nullable = false, precision = 10, scale = 2)
     private BigDecimal totalAmount;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private final List<OrderItem> items = new ArrayList<>();
 
-    public Order(String orderNumber) {
+    public Order(String orderNumber, User user) {
         this.orderNumber = orderNumber;
+        this.user = user;
         this.status = OrderStatus.RECEIVED;
         this.totalAmount = BigDecimal.ZERO;
     }

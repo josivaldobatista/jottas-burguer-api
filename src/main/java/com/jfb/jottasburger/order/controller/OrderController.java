@@ -33,6 +33,11 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<List<OrderResponse>> findMyOrders() {
+        return ResponseEntity.ok(orderService.findMyOrders());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<OrderResponse> findById(@PathVariable Long id) {
         return ResponseEntity.ok(orderService.findById(id));
