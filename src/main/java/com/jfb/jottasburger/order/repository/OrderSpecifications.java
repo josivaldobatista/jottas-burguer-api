@@ -17,4 +17,8 @@ public final class OrderSpecifications {
             return cb.equal(root.get("status"), status);
         };
     }
+
+    public static Specification<Order> hasUserId(Long userId) {
+        return (root, query, cb) -> cb.equal(root.get("user").get("id"), userId);
+    }
 }

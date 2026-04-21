@@ -34,8 +34,13 @@ public class OrderController {
     }
 
     @GetMapping("/me")
-    public ResponseEntity<List<OrderResponse>> findMyOrders() {
-        return ResponseEntity.ok(orderService.findMyOrders());
+    public ResponseEntity<Page<OrderResponse>> findMyOrders(
+            @RequestParam(required = false) OrderStatus status,
+            @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC)
+            Pageable pageable
+    ) {
+        OrderFilterRequest filter = new OrderFilterRequest(status);
+        return ResponseEntity.ok(orderService.findMyOrders(filter, pageable));
     }
 
     @GetMapping("/{id}")

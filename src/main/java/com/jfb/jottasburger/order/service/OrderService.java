@@ -85,6 +85,19 @@ public class OrderService {
                 .toList();
     }
 
+    @Transactional(readOnly = true)
+    public Page<OrderResponse> findMyOrders(OrderFilterRequest filter, Pageable pageable) {
+        var authenticatedUser = authenticatedUserService.getAuthenticatedUser();
+
+        Specification<Order> specification = Specification.allOf(
+                OrderSpecifications.hasUserId(authenticatedUser.getId()),
+                OrderSpecifications.hasStatus(filter.status())
+        );
+
+        return orderRepository.findAll(specification, pageable)
+                .map(this::toResponse);
+    }
+
     @Transactional
     public OrderResponse updateStatus(Long id, UpdateOrderStatusRequest request) {
         Order order = findOrderById(id);
