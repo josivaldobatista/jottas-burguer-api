@@ -1,42 +1,49 @@
 # 🍔 JottasBurger API
 
-Backend API para gestão de uma hamburgueria, desenvolvida com **Java 21** e **Spring Boot**, com foco em boas práticas de mercado, arquitetura limpa e evolução incremental.
+Backend de uma hamburgueria desenvolvido com **Java 21 + Spring Boot 3**, focado em **boas práticas de mercado, arquitetura limpa e evolução incremental**.
+
+Este projeto simula um sistema real com **autenticação, autorização, gestão de pedidos e isolamento de dados por usuário**.
 
 ---
 
 ## 📌 Objetivo
 
-Este projeto foi desenvolvido como **portfólio profissional**, simulando um sistema real de uma hamburgueria, incluindo:
+Este projeto foi criado como **portfólio profissional**, com foco em:
 
-* Catálogo de produtos
-* Gestão de pedidos
-* Regras de negócio
-* Estrutura escalável e organizada
+* simular um sistema real de delivery
+* aplicar padrões utilizados no mercado
+* evoluir de um CRUD simples para um backend completo
+* demonstrar domínio de:
 
-A proposta é evoluir o sistema progressivamente, aplicando conceitos usados no mercado.
+  * arquitetura
+  * segurança
+  * testes
+  * performance
 
 ---
 
 ## 🧱 Arquitetura
 
-O projeto segue uma abordagem de **monólito modular**, organizado por contexto de negócio:
+O projeto segue um **monólito modular**, organizado por domínio:
 
 ```
 com.jfb.jottasburger
-├── category
-├── product
-├── order
-├── common
-├── config
-└── exception
+├── auth        → autenticação e segurança (JWT)
+├── user        → entidade de usuário
+├── category    → categorias de produtos
+├── product     → catálogo de produtos
+├── order       → pedidos e itens
+├── common      → utilitários compartilhados
+├── config      → configurações
+└── exception   → tratamento global de erros
 ```
 
 Cada módulo contém:
 
-* `controller` → entrada da API
+* `controller` → entrada da API (REST)
 * `service` → regras de negócio
 * `repository` → acesso a dados
-* `dto` → contratos da API
+* `dto` → contratos de entrada/saída
 * `model` → entidades JPA
 
 ---
@@ -44,47 +51,74 @@ Cada módulo contém:
 ## ⚙️ Tecnologias
 
 * Java 21
-* Spring Boot 3.5
+* Spring Boot 3
 * Spring Web
 * Spring Data JPA
-* Spring Security
+* Spring Security (JWT)
 * PostgreSQL
 * Flyway (versionamento de banco)
-* Spring Validation
+* Bean Validation
 * SpringDoc OpenAPI (Swagger)
 * Lombok
-* Testcontainers
-* Docker (planejado)
+* JUnit + Mockito
+* MockMvc (testes de integração)
 
 ---
 
-## 🚀 Funcionalidades (MVP)
+## 🔐 Segurança
+
+Implementação completa com:
+
+* autenticação via JWT
+* controle de acesso por roles:
+
+  * `ADMIN`
+  * `CUSTOMER`
+* endpoints protegidos por perfil
+* isolamento de dados por usuário (`/orders/me`)
+
+---
+
+## 🚀 Funcionalidades
+
+### 👤 Autenticação
+
+* `POST /api/auth/register` → cadastro de cliente
+* `POST /api/auth/login` → login com JWT
+
+---
 
 ### 📂 Categorias
 
-* Criar categoria
-* Listar categorias ativas
-* Buscar por ID
-* Atualizar nome
-* Ativar / desativar
-
-### 🍔 Produtos *(em desenvolvimento)*
-
-* Cadastro de produtos
-* Associação com categoria
-* Ativação / desativação
-* Listagem de produtos ativos
-
-### 📦 Pedidos *(planejado)*
-
-* Criação de pedido
-* Itens de pedido
-* Cálculo de total
-* Controle de status
+* criar categoria
+* listar categorias ativas
+* buscar por ID
+* atualizar
+* ativar / desativar
 
 ---
 
-## 🔄 Status do Pedido *(planejado)*
+### 🍔 Produtos
+
+* cadastro de produtos
+* associação com categoria
+* ativação / desativação
+* listagem com filtros e paginação
+
+---
+
+### 📦 Pedidos
+
+* criação de pedidos (CUSTOMER e ADMIN)
+* associação automática ao usuário autenticado
+* cálculo de valor total
+* controle de status
+* isolamento por usuário (`/orders/me`)
+* paginação + filtro por status
+
+---
+
+### 🔄 Status do Pedido
 
 * RECEIVED
 * IN_PREPARATION
@@ -95,17 +129,62 @@ Cada módulo contém:
 
 ---
 
+## 📊 Paginação
+
+A API utiliza um padrão customizado de resposta:
+
+```json
+{
+  "data": [...],
+  "page": 0,
+  "size": 10,
+  "totalElements": 25,
+  "totalPages": 3,
+  "first": true,
+  "last": false
+}
+```
+
+---
+
 ## 🗄️ Banco de Dados
 
 * PostgreSQL
-* Controle de schema com Flyway
-* Migrations versionadas
+* migrations versionadas com Flyway
 
 Exemplo:
 
 ```
 V1__create_categories_table.sql
+V2__create_products_table.sql
+V3__create_orders_table.sql
 ```
+
+---
+
+## ⚡ Performance
+
+* `open-in-view: false`
+* resolução de problema N+1 em pedidos
+* carregamento otimizado de `OrderItem` em lote
+
+---
+
+## 🧪 Testes
+
+### ✔️ Testes unitários
+
+* services com Mockito
+
+### ✔️ Testes de integração
+
+* fluxo completo:
+
+  * register → login → criar pedido → consultar `/orders/me`
+* validação de segurança:
+
+  * CUSTOMER vs ADMIN
+  * endpoints protegidos
 
 ---
 
@@ -113,28 +192,26 @@ V1__create_categories_table.sql
 
 Após iniciar a aplicação:
 
-* Swagger UI:
-  http://localhost:8080/swagger-ui.html
-* Ou: http://localhost:8080/swagger-ui/index.html
+* Swagger UI
+  http://localhost:8080/swagger-ui/index.html
 
-
-* OpenAPI JSON:
+* OpenAPI JSON
   http://localhost:8080/api-docs
 
 ---
 
 ## ▶️ Como rodar o projeto
 
-### 1. Clonar o repositório
+### 1. Clonar
 
 ```bash
 git clone https://github.com/seu-usuario/jottasburger.git
 cd jottasburger
 ```
 
-### 2. Subir o PostgreSQL
+---
 
-Exemplo com Docker:
+### 2. Subir banco com Docker
 
 ```bash
 docker run --name postgres-jottas \
@@ -145,7 +222,9 @@ docker run --name postgres-jottas \
   -d postgres
 ```
 
-### 3. Configurar `application.yml`
+---
+
+### 3. Configurar `application-dev.yml`
 
 ```yaml
 spring:
@@ -155,7 +234,9 @@ spring:
     password: postgres
 ```
 
-### 4. Rodar a aplicação
+---
+
+### 4. Rodar aplicação
 
 ```bash
 ./mvnw spring-boot:run
@@ -163,47 +244,30 @@ spring:
 
 ---
 
-## 🧪 Testes
+## 🧠 Decisões técnicas
 
-* Testes unitários
-* Testes de integração com Testcontainers *(planejado)*
-
----
-
-## 🔐 Segurança
-
-Atualmente:
-
-* endpoints liberados para desenvolvimento
-
-Planejado:
-
-* autenticação com JWT
-* controle de acesso por perfil (ADMIN / CUSTOMER)
-
----
-
-## 📈 Evolução futura
-
-* Autenticação com JWT
-* Carrinho de compras
-* Cupons de desconto
-* Taxa de entrega por região
-* Integração com pagamento
-* Cache com Redis
-* Mensageria (eventos de pedido)
-* Observabilidade avançada
-* CI/CD
-
----
-
-## 💡 Decisões técnicas
-
-* Uso de **Flyway** ao invés de `ddl-auto`
-* Separação por módulos de negócio
-* DTOs para entrada/saída (não expor entidades)
+* uso de **Flyway** ao invés de `ddl-auto`
+* separação por módulos de negócio
+* DTOs para entrada/saída
 * `open-in-view: false`
-* Tratamento global de exceções
+* tratamento global de exceções
+* autenticação stateless com JWT
+* isolamento de dados por usuário
+* paginação customizada
+* solução manual para N+1 com carregamento em lote
+
+---
+
+## 📈 Próximos passos
+
+* `GET /api/users/me`
+* atualização de perfil
+* integração com pagamento
+* cache com Redis
+* mensageria (eventos de pedido)
+* observabilidade (logs estruturados)
+* CI/CD
+* Testcontainers
 
 ---
 
@@ -211,5 +275,3 @@ Planejado:
 
 Desenvolvido por **João (JFB)**
 Projeto para fins de estudo e portfólio.
-
----
