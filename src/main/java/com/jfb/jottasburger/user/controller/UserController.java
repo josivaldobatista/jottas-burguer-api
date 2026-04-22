@@ -1,22 +1,27 @@
 package com.jfb.jottasburger.user.controller;
 
+import com.jfb.jottasburger.user.dto.UpdateUserMeRequest;
 import com.jfb.jottasburger.user.dto.UserMeResponse;
 import com.jfb.jottasburger.user.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/users")
+@RequiredArgsConstructor
 public class UserController {
 
-    private final UserService service;
+    private final UserService userService;
 
     @GetMapping("/me")
-    public ResponseEntity<UserMeResponse> me() {
-        return ResponseEntity.ok(service.getMe());
+    public ResponseEntity<UserMeResponse> getMe() {
+        return ResponseEntity.ok(userService.getMe());
+    }
+
+    @PutMapping("/me")
+    public ResponseEntity<UserMeResponse> updateMe(@Valid @RequestBody UpdateUserMeRequest request) {
+        return ResponseEntity.ok(userService.updateMe(request));
     }
 }

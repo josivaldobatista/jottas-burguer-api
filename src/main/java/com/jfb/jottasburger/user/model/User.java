@@ -43,4 +43,8 @@ public class User extends BaseEntity {
     public void deactivate() {
         this.active = false;
     }
+
+    public void updateName(String name) {
+        this.name = name;
+    }
 }
