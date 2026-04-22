@@ -4,11 +4,13 @@ import com.jfb.jottasburger.auth.dto.LoginRequest;
 import com.jfb.jottasburger.auth.dto.LoginResponse;
 import com.jfb.jottasburger.auth.dto.RegisterRequest;
 import com.jfb.jottasburger.auth.dto.RegisterResponse;
+import com.jfb.jottasburger.auth.event.UserRegisteredEvent;
 import com.jfb.jottasburger.exception.BusinessException;
 import com.jfb.jottasburger.user.model.Role;
 import com.jfb.jottasburger.user.model.User;
 import com.jfb.jottasburger.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +26,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final ApplicationEventPublisher applicationEventPublisher;
 
     public LoginResponse login(LoginRequest request) {
         authenticationManager.authenticate(
@@ -54,6 +57,14 @@ public class AuthenticationService {
         );
 
         User savedUser = userRepository.save(user);
+
+        applicationEventPublisher.publishEvent(
+                new UserRegisteredEvent(
+                        savedUser.getId(),
+                        savedUser.getName(),
+                        savedUser.getEmail()
+                )
+        );
 
         return new RegisterResponse(
                 savedUser.getId(),
