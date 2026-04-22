@@ -6,6 +6,7 @@ import com.jfb.jottasburger.product.dto.ProductFilterRequest;
 import com.jfb.jottasburger.product.dto.ProductResponse;
 import com.jfb.jottasburger.product.dto.UpdateProductRequest;
 import com.jfb.jottasburger.product.service.ProductService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
+@Tag(name = "Product", description = "Operations for managing product")
 public class ProductController {
 
     private final ProductService productService;

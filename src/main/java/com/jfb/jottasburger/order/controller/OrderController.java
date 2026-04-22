@@ -7,6 +7,7 @@ import com.jfb.jottasburger.order.dto.OrderResponse;
 import com.jfb.jottasburger.order.dto.UpdateOrderStatusRequest;
 import com.jfb.jottasburger.order.model.OrderStatus;
 import com.jfb.jottasburger.order.service.OrderService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/orders")
 @RequiredArgsConstructor
+@Tag(name = "Order", description = "Operations for managing orders")
 public class OrderController {
 
     private final OrderService orderService;
