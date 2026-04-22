@@ -1,6 +1,8 @@
 package com.jfb.jottasburger.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.Instant;
 import java.util.List;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -20,16 +23,12 @@ public class GlobalExceptionHandler {
             ResourceNotFoundException ex,
             HttpServletRequest request
     ) {
-        ErrorResponse response = new ErrorResponse(
-                Instant.now(),
-                HttpStatus.NOT_FOUND.value(),
-                HttpStatus.NOT_FOUND.getReasonPhrase(),
+        return buildResponse(
+                HttpStatus.NOT_FOUND,
                 ex.getMessage(),
-                request.getRequestURI(),
+                request,
                 List.of()
         );
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
 
     @ExceptionHandler(BusinessException.class)
@@ -37,16 +36,12 @@ public class GlobalExceptionHandler {
             BusinessException ex,
             HttpServletRequest request
     ) {
-        ErrorResponse response = new ErrorResponse(
-                Instant.now(),
-                HttpStatus.BAD_REQUEST.value(),
-                HttpStatus.BAD_REQUEST.getReasonPhrase(),
+        return buildResponse(
+                HttpStatus.BAD_REQUEST,
                 ex.getMessage(),
-                request.getRequestURI(),
+                request,
                 List.of()
         );
-
-        return ResponseEntity.badRequest().body(response);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -60,16 +55,12 @@ public class GlobalExceptionHandler {
                 .map(this::toFieldErrorResponse)
                 .toList();
 
-        ErrorResponse response = new ErrorResponse(
-                Instant.now(),
-                HttpStatus.BAD_REQUEST.value(),
-                HttpStatus.BAD_REQUEST.getReasonPhrase(),
+        return buildResponse(
+                HttpStatus.BAD_REQUEST,
                 "Validation failed",
-                request.getRequestURI(),
+                request,
                 fieldErrors
         );
-
-        return ResponseEntity.badRequest().body(response);
     }
 
     @ExceptionHandler(AuthenticationException.class)
@@ -77,16 +68,12 @@ public class GlobalExceptionHandler {
             AuthenticationException ex,
             HttpServletRequest request
     ) {
-        ErrorResponse response = new ErrorResponse(
-                Instant.now(),
-                HttpStatus.UNAUTHORIZED.value(),
-                HttpStatus.UNAUTHORIZED.getReasonPhrase(),
+        return buildResponse(
+                HttpStatus.UNAUTHORIZED,
                 "Invalid email or password",
-                request.getRequestURI(),
+                request,
                 List.of()
         );
-
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 
     @ExceptionHandler(Exception.class)
@@ -94,19 +81,41 @@ public class GlobalExceptionHandler {
             Exception ex,
             HttpServletRequest request
     ) {
-        ErrorResponse response = new ErrorResponse(
-                Instant.now(),
-                HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
+        log.error("Unexpected internal error at path {}", request.getRequestURI(), ex);
+
+        return buildResponse(
+                HttpStatus.INTERNAL_SERVER_ERROR,
                 "Unexpected internal error",
-                request.getRequestURI(),
+                request,
                 List.of()
         );
+    }
 
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+    private ResponseEntity<ErrorResponse> buildResponse(
+            HttpStatus status,
+            String message,
+            HttpServletRequest request,
+            List<FieldErrorResponse> fieldErrors
+    ) {
+        String traceId = MDC.get("traceId");
+
+        ErrorResponse response = new ErrorResponse(
+                Instant.now(),
+                status.value(),
+                status.getReasonPhrase(),
+                message,
+                request.getRequestURI(),
+                traceId,
+                fieldErrors
+        );
+
+        return ResponseEntity.status(status).body(response);
     }
 
     private FieldErrorResponse toFieldErrorResponse(FieldError fieldError) {
-        return new FieldErrorResponse(fieldError.getField(), fieldError.getDefaultMessage());
+        return new FieldErrorResponse(
+                fieldError.getField(),
+                fieldError.getDefaultMessage()
+        );
     }
 }

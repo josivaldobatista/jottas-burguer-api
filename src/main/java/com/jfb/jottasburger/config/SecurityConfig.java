@@ -23,6 +23,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
+    private static final String[] PUBLIC_ENDPOINTS = {
+            "/api/auth/**",
+            "/swagger-ui.html",
+            "/swagger-ui/**",
+            "/api-docs/**",
+            "/actuator/health"
+    };
+
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
     private final CustomAccessDeniedHandler customAccessDeniedHandler;
@@ -37,20 +45,12 @@ public class SecurityConfig {
                         .accessDeniedHandler(customAccessDeniedHandler)
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/api/auth/**",
-                                "/swagger-ui.html",
-                                "/swagger-ui/**",
-                                "/api-docs/**",
-                                "/actuator/health"
-                        ).permitAll()
+                        .requestMatchers(PUBLIC_ENDPOINTS).permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/categories/active").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/products/active").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/products/*").permitAll()
 
-                        .requestMatchers(HttpMethod.GET, "/api/users/me").hasAnyRole("ADMIN", "CUSTOMER")
-                        .requestMatchers(HttpMethod.PUT, "/api/users/me").hasAnyRole("ADMIN", "CUSTOMER")
-                        .requestMatchers(HttpMethod.PATCH, "/api/users/me/password").hasAnyRole("ADMIN", "CUSTOMER")
+                        .requestMatchers("/api/users/me", "/api/users/me/password").hasAnyRole("ADMIN", "CUSTOMER")
 
                         .requestMatchers(HttpMethod.POST, "/api/orders").hasAnyRole("CUSTOMER", "ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/orders/me").hasAnyRole("CUSTOMER", "ADMIN")
