@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido realizado - Jotta's Burger</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-row">
+        <div>
+            <h1 class="logo">Jotta's Burger</h1>
+            <p class="header-user">
+                Pedido realizado com sucesso
+            </p>
+        </div>
+
+        <nav class="main-nav">
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/carrinho}">Carrinho</a>
+            <a th:href="@{/perfil}">Perfil</a>
+            <form th:action="@{/logout}" method="post" class="logout-form">
+                <button type="submit" class="logout-button">Sair</button>
+            </form>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h2>Pedido confirmado</h2>
+        <p>Seu pedido foi enviado com sucesso para a Jotta's Burger.</p>
+    </section>
+
+    <section class="info-grid">
+        <article class="info-card">
+            <h3>Número do pedido</h3>
+            <p th:text="${order.orderNumber}">PED-0001</p>
+        </article>
+
+        <article class="info-card">
+            <h3>Status</h3>
+            <p th:text="${order.status}">RECEIVED</p>
+        </article>
+
+        <article class="info-card">
+            <h3>Total</h3>
+            <p>
+                <span th:text="${#numbers.formatCurrency(order.totalAmount)}">R$ 0,00</span>
+            </p>
+        </article>
+    </section>
+
+    <section class="hero-actions">
+        <a class="primary-link-button" th:href="@{/home}">Voltar para a Home</a>
+    </section>
+</main>
+
+</body>
+</html>

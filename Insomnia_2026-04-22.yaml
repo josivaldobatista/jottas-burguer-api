@@ -1,0 +1,1315 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: jottas-burguer-java
+meta:
+  id: wrk_00a273baafb64188a08832a48c776b5b
+  created: 1776152088609
+  modified: 1776152088609
+  description: ""
+collection:
+  - url: http://localhost:8080/api/auth/login
+    name: login
+    meta:
+      id: req_3b5eb83a695e41fa863c0c412112b0c5
+      created: 1776644884544
+      modified: 1776867489638
+      isPrivate: false
+      description: |-
+        {
+          "email": "admin@jottasburger.com",
+          "password": "Admin@123"
+        }
+      sortKey: -1776644884544
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "admin@jottasburger.com",
+          "password": "Admin@123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - name: customer
+    meta:
+      id: fld_c77a565d15fe4194b3a693489bd7b757
+      created: 1776152099587
+      modified: 1776152099587
+      sortKey: -1776152099587
+      description: ""
+    children:
+      - url: http://localhost:8080/api/v1/customers
+        name: create
+        meta:
+          id: req_d90a27f39396425097b5e193bfa59e2b
+          created: 1776152103385
+          modified: 1776365575430
+          isPrivate: false
+          description: ""
+          sortKey: -1776152103385
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Helena Batista",
+              "email": "helednsdea@example.com",
+              "phone": "11987654321",
+              "address": {
+                "street": "Rua das Flores",
+                "number": "123",
+                "complement": "Apto 45",
+                "neighborhood": "Centro",
+                "city": "Taboão da Serra",
+                "state": "SP",
+                "zipCode": "06753-000"
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/v1/customers/bf691270-f284-41ea-812f-b5aa474b204f
+        name: update
+        meta:
+          id: req_c6eeefe99a64442181469db45214e8ba
+          created: 1776305162041
+          modified: 1776381990811
+          isPrivate: false
+          description: ""
+          sortKey: -1775422556426.875
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Jonas Brothers",
+              "email": "Jonas-Brother@example.com",
+              "phone": "11987654321",
+              "address": {
+                "street": "Rua das Flores",
+                "number": "44",
+                "complement": "Apto 45",
+                "neighborhood": "Centro",
+                "city": "Taboão da Serra",
+                "state": "SP",
+                "zipCode": "06753-000"
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/v1/customers/bf691270-f284-41ea-812f-b5aa474b204f
+        name: find by UUID
+        meta:
+          id: req_a9a6d19a01c247ed9481f546bae3be96
+          created: 1776420160859
+          modified: 1776420160859
+          isPrivate: false
+          description: ""
+          sortKey: -1775531988470.5938
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/v1/customers
+        name: find by all
+        meta:
+          id: req_6d7f72d432a74e1d88b33ea7c6a45424
+          created: 1776420207576
+          modified: 1776420207576
+          isPrivate: false
+          description: ""
+          sortKey: -1775130737643.625
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/v1/customers/bf691270-f284-41ea-812f-b5aa474b204f
+        name: soft delete
+        meta:
+          id: req_ac5ccd2cd2c044f484fe72557b394c42
+          created: 1776420227836
+          modified: 1776420227836
+          isPrivate: false
+          description: ""
+          sortKey: -1775440795100.8281
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/v1/customers/delete/bf691270-f284-41ea-812f-b5aa474b204f
+        name: delete
+        meta:
+          id: req_5e86c89aba5c4ab3a364cee3ed64cc27
+          created: 1776420258251
+          modified: 1776420258251
+          isPrivate: false
+          description: ""
+          sortKey: -1775468153111.7578
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: product
+    meta:
+      id: fld_75189c35e30446b9918c53973bb2b164
+      created: 1776419997204
+      modified: 1776748332063
+      sortKey: -1776516930824.5
+      description: ""
+    children:
+      - url: http://localhost:8080/api/products
+        name: find all
+        meta:
+          id: req_8e3aa11e1b44420197e330ac084d7fd5
+          created: 1776304948043
+          modified: 1776674750583
+          isPrivate: false
+          description: ""
+          sortKey: -1776420016177
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/products/3
+        name: find by id
+        meta:
+          id: req_f6d15435bc404182b74d34a4ed3dfa7f
+          created: 1776421683981
+          modified: 1776642539855
+          isPrivate: false
+          description: ""
+          sortKey: -1776420016202
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/products
+        name: create
+        meta:
+          id: req_4f6960100ee944f9ada341c582677f9e
+          created: 1776612705067
+          modified: 1776754651076
+          isPrivate: false
+          description: ""
+          sortKey: -1776420016302
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "name": "String String",
+              "description": "String String String",
+              "price": 2.90,
+            	"categoryId": 3
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/products/1/deactivate
+        name: deactivate
+        meta:
+          id: req_3fa253fed4ac431482e499ce2dd57bc9
+          created: 1776627715881
+          modified: 1776630068982
+          isPrivate: false
+          description: ""
+          sortKey: -1776420016195.75
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/products/1/activate
+        name: activate
+        meta:
+          id: req_f7fa44611fdb418bbd748eddb17cd4a1
+          created: 1776627794545
+          modified: 1776630088873
+          isPrivate: false
+          description: ""
+          sortKey: -1776420016192.625
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/products/active
+        name: find All Active
+        meta:
+          id: req_bad5865be77848f78de205c99fe314f4
+          created: 1776629561959
+          modified: 1776629819903
+          isPrivate: false
+          description: ""
+          sortKey: -1776420016164.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/products/1
+        name: update
+        meta:
+          id: req_50d8bddce0d54ed49756f630ff93ccf8
+          created: 1776629863220
+          modified: 1776629972058
+          isPrivate: false
+          description: ""
+          sortKey: -1776420016189.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "TESTE",
+            	"description": "TESTE TESTE",
+            	"price": 73.71,
+            	"categoryId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: search
+        meta:
+          id: fld_98d1aa66d1fa4ca1b39c99cd7e5cacf0
+          created: 1776675162099
+          modified: 1776675162099
+          sortKey: -1776675162099
+          description: ""
+        children:
+          - url: http://localhost:8080/api/products/search?page=0&size=10
+            name: search
+            meta:
+              id: req_81570b0bb11244739d5b121998d22ffb
+              created: 1776674854465
+              modified: 1776675198433
+              isPrivate: false
+              description: ""
+              sortKey: -1776675168519
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/products/search?name=sorvete&page=0&size=5
+            name: search by name
+            meta:
+              id: req_03f82f4cc5a74273a4aa4d5caafb1688
+              created: 1776675228244
+              modified: 1776675333409
+              isPrivate: false
+              description: ""
+              sortKey: -1776660026531.5
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/products/search?active=true&page=0&size=10
+            name: search by active
+            meta:
+              id: req_ca2bc1d9a8df4026bab255e90c312d65
+              created: 1776675354793
+              modified: 1776675363949
+              isPrivate: false
+              description: ""
+              sortKey: -1776652455537.75
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/products/search?categoryId=2&page=0&size=10
+            name: search by categoryId
+            meta:
+              id: req_e5224733ba1a4acd84b728f8e4775818
+              created: 1776675385978
+              modified: 1776675439287
+              isPrivate: false
+              description: ""
+              sortKey: -1776656241034.625
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/products/search?name=x&active=true&categoryId=1&page=0&size=5&sort=price,desc
+            name: search combinado
+            meta:
+              id: req_f40da693d51d4b96a6384c68ef978b23
+              created: 1776675567282
+              modified: 1776675576560
+              isPrivate: false
+              description: ""
+              sortKey: -1776654348286.1875
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+  - name: order
+    meta:
+      id: fld_5393375eafc44373a9ee787ddf504cea
+      created: 1776421170610
+      modified: 1776421170610
+      sortKey: -1776421170610
+      description: ""
+    children:
+      - url: http://localhost:8080/api/orders
+        name: create
+        meta:
+          id: req_ddb39669e86443cea230d4987a9278c6
+          created: 1776420016127
+          modified: 1776675100933
+          isPrivate: false
+          description: ""
+          sortKey: -1776421193084
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "items": [
+                {
+                  "productId": 1,
+                  "quantity": 2
+                },
+                {
+                  "productId": 2,
+                  "quantity": 1
+                }
+              ]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/orders/1
+        name: find By Id
+        meta:
+          id: req_ba13cce52ff74636ae297692968a187a
+          created: 1776637408769
+          modified: 1776637760297
+          isPrivate: false
+          description: ""
+          sortKey: -1776420604693
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/orders
+        name: find All
+        meta:
+          id: req_f33046f31b2440e7843fc072956437b4
+          created: 1776637468139
+          modified: 1776748384564
+          isPrivate: false
+          description: ""
+          sortKey: -1776420310497.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/orders/3/status
+        name: update Status
+        meta:
+          id: req_30ed3bfb4d7547c184ba005c14293147
+          created: 1776637555009
+          modified: 1776642455276
+          isPrivate: false
+          description: ""
+          sortKey: -1776420457595.25
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"status": "IN_PREPARATION"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/orders/me
+        name: me
+        meta:
+          id: req_2e363f2aad2046abbbb5117c0d517734
+          created: 1776754749715
+          modified: 1776754900530
+          isPrivate: false
+          description: |
+            Pedidos do usuário logado
+          sortKey: -1776420163399.75
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: search
+        meta:
+          id: fld_15a8b841dc904edda214d5df8b7770d1
+          created: 1776677986284
+          modified: 1776677986284
+          sortKey: -1776677986284
+          description: ""
+        children:
+          - url: http://localhost:8080/api/orders/search?status=RECEIVED&page=0&size=10
+            name: search by status
+            meta:
+              id: req_a06b61177f9c40cba89faf170309a371
+              created: 1776678091345
+              modified: 1776678191371
+              isPrivate: false
+              description: ""
+              sortKey: -1776676586844
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/orders/search?status=RECEIVED&page=0&size=5&sort=createdAt,desc
+            name: Ordenação explícita
+            meta:
+              id: req_45f161149a6046c385ab7770cc6ff87b
+              created: 1776678129720
+              modified: 1776678141239
+              isPrivate: false
+              description: ""
+              sortKey: -1776677296006.5
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/orders/search?page=0&size=10
+            name: search
+            meta:
+              id: req_775fe2e173e84e2f99f9b4c925864b38
+              created: 1776758343439
+              modified: 1776758343439
+              isPrivate: false
+              description: ""
+              sortKey: -1776677650587.75
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/orders/me?page=0&size=10
+            name: teste
+            meta:
+              id: req_4772be51a47a4860882e9c173f8b1f0d
+              created: 1776762068091
+              modified: 1776762080697
+              isPrivate: false
+              description: ""
+              sortKey: -1776677473297.125
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: search me
+        meta:
+          id: fld_cee55f653bc64809add5e980e8fc7bb8
+          created: 1776758333026
+          modified: 1776758333026
+          sortKey: -1776758333026
+          description: ""
+        children:
+          - url: http://localhost:8080/api/orders/me?page=0&size=10
+            name: search
+            meta:
+              id: req_ccb4d1da6e15442f929b3a67bd3a59d6
+              created: 1776677999192
+              modified: 1776758376348
+              isPrivate: false
+              description: ""
+              sortKey: -1776758353813
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/orders/me?status=RECEIVED&page=0&size=10
+            name: filter by status
+            meta:
+              id: req_35710c3959114cea928db017a0ce331a
+              created: 1776758403255
+              modified: 1776758413187
+              isPrivate: false
+              description: ""
+              sortKey: -1776757703997
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/orders/me?page=0&size=5&sort=createdAt,desc
+            name: search and sort desc
+            meta:
+              id: req_6aede34486bc496dbe3b1b7b258a7c8e
+              created: 1776758447991
+              modified: 1776758460486
+              isPrivate: false
+              description: ""
+              sortKey: -1776758028905
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/orders/me?status=DELIVERED&page=0&size=10
+            name: search another status
+            meta:
+              id: req_bfbb0a98026c4d7e926f1fbcde5d0790
+              created: 1776758474366
+              modified: 1776758486261
+              isPrivate: false
+              description: ""
+              sortKey: -1776758191359
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.5.0
+                description: ""
+                disabled: false
+              - name: Authorization
+                value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+                  '$.accessToken', 'never', 60 %}
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+  - name: category
+    meta:
+      id: fld_44ef894c7c694e47981881883c98afe6
+      created: 1776612691039
+      modified: 1776677962419
+      sortKey: -1776612691039
+      description: ""
+    children:
+      - url: http://localhost:8080/api/categories/active
+        name: find all active
+        meta:
+          id: req_9bbacad4efd54f09993832df3270c62b
+          created: 1776627469046
+          modified: 1776627857414
+          isPrivate: false
+          description: ""
+          sortKey: -1776580120663
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/categories/1
+        name: find by id
+        meta:
+          id: req_860efb4279a24146864bc88445ac5596
+          created: 1776627555649
+          modified: 1776627842402
+          isPrivate: false
+          description: ""
+          sortKey: -1776596417755
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/categories/1
+        name: update
+        meta:
+          id: req_87b72f7684d44dbdb7bbca61724d0467
+          created: 1776627604353
+          modified: 1776627687209
+          isPrivate: false
+          description: ""
+          sortKey: -1776588269209
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Teste"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/categories/1/deactivate
+        name: deactivate
+        meta:
+          id: req_d5ae1f26959a47f399f1bca6b70381f0
+          created: 1776630046666
+          modified: 1776630046666
+          isPrivate: false
+          description: ""
+          sortKey: -1776591324913.75
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/categories/1/activate
+        name: activate
+        meta:
+          id: req_226bf5d8a0ee4798b0f6eca2003e0cb7
+          created: 1776630053931
+          modified: 1776630053931
+          isPrivate: false
+          description: ""
+          sortKey: -1776589287777.25
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/categories
+        name: create
+        meta:
+          id: req_fb8566e9c62a4296bb4c2aa405a214d1
+          created: 1776757046270
+          modified: 1776871425691
+          isPrivate: false
+          description: ""
+          sortKey: -1776604566301
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "name": "Bebidas"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: user
+    meta:
+      id: fld_8f28c5f9af9a4af58ffc3148a1c271aa
+      created: 1776757029012
+      modified: 1776757032736
+      sortKey: -1776628787791.5
+      description: ""
+    children:
+      - url: http://localhost:8080/api/auth/register
+        name: create
+        meta:
+          id: req_1ce1ecf746a141a9b15d2646ff55cfa9
+          created: 1776421178740
+          modified: 1776867359777
+          isPrivate: false
+          description: ""
+          sortKey: -1776757054181
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "Valdo",
+              "email": "valdo@example.com",
+              "password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/users/me
+        name: get me
+        meta:
+          id: req_34e4435c62ab421e867bf86547ec9052
+          created: 1776847642925
+          modified: 1776847879566
+          isPrivate: false
+          description: ""
+          sortKey: -1776847642925
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/users/me
+        name: update me
+        meta:
+          id: req_d67e5f4bdb4b457a8581a50fbfd74fe2
+          created: 1776850479943
+          modified: 1776851228002
+          isPrivate: false
+          description: ""
+          sortKey: -1776802998369
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Marcela Araujo"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/api/users/me/password
+        name: change Password
+        meta:
+          id: req_1167b7623dd44a28ac776f608a34c8d2
+          created: 1776853695064
+          modified: 1776865827850
+          isPrivate: false
+          description: ""
+          sortKey: -1776825320647
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "currentPassword": "12345678",
+              "newPassword": "12345678",
+              "confirmNewPassword": "12345678"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+          - name: Authorization
+            value: Bearer {% response 'body', 'req_3b5eb83a695e41fa863c0c412112b0c5',
+              '$.accessToken', 'never', 60 %}
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_7c1a38c0322e984bd367fc92c3a3810dc11a929d
+    created: 1776152088613
+    modified: 1776152088613
+environments:
+  name: Base Environment
+  meta:
+    id: env_7c1a38c0322e984bd367fc92c3a3810dc11a929d
+    created: 1776152088611
+    modified: 1776674538879
+    isPrivate: false
+  data:
+    "":
+      base_url: http://localhost:8080
+      auth:
+        token: ""

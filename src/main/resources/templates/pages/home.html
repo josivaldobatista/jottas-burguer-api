@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle}">Home - Jotta's Burger</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-row">
+        <div>
+            <h1 class="logo">Jotta's Burger</h1>
+            <p class="header-user">
+                Logado como <strong th:text="${userName}">Usuário</strong>
+            </p>
+        </div>
+
+        <nav class="main-nav">
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/carrinho}">Carrinho</a>
+            <a th:href="@{/perfil}">Perfil</a>
+            <form th:action="@{/logout}" method="post" class="logout-form">
+                <button type="submit" class="logout-button">Sair</button>
+            </form>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="dashboard-hero-simple">
+        <span class="hero-badge">Área autenticada</span>
+        <h2>
+            Olá, <span th:text="${userName}">Usuário</span>
+        </h2>
+        <p>
+            Explore o cardápio da Jotta's Burger, adicione itens ao carrinho
+            e acompanhe sua experiência dentro da área interna do sistema.
+        </p>
+
+        <div class="dashboard-actions">
+            <a class="primary-link-button" th:href="@{/carrinho}">Ver carrinho</a>
+            <a class="secondary-link-button" th:href="@{/perfil}">Meu perfil</a>
+        </div>
+    </section>
+
+    <section th:if="${#lists.isEmpty(sections)}" class="empty-state">
+        <p>Nenhuma categoria ativa encontrada no momento.</p>
+    </section>
+
+    <section th:unless="${#lists.isEmpty(sections)}" class="menu-section">
+        <div th:each="section : ${sections}" class="category-block">
+            <div class="category-header">
+                <div>
+                    <span class="category-tag">Categoria</span>
+                    <h3 th:text="${section.name}">Categoria</h3>
+                </div>
+
+                <span class="category-count">
+                    <span th:text="${#lists.size(section.products)}">0</span> itens
+                </span>
+            </div>
+
+            <div th:if="${#lists.isEmpty(section.products)}" class="empty-state">
+                <p>Nenhum produto ativo nesta categoria.</p>
+            </div>
+
+            <div th:unless="${#lists.isEmpty(section.products)}" class="product-grid">
+                <article th:each="product : ${section.products}" class="product-card modern-product-card">
+                    <div class="product-card-top">
+                        <div>
+                            <h4 th:text="${product.name}">Nome do produto</h4>
+                            <p th:text="${product.description}">Descrição do produto</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card-bottom">
+                        <div class="price-block">
+                            <span class="price-label">Preço</span>
+                            <strong>
+                                <span th:text="${#numbers.formatCurrency(product.price)}">R$ 0,00</span>
+                            </strong>
+                        </div>
+
+                        <form th:action="@{/carrinho/adicionar}" method="post" class="card-form">
+                            <input type="hidden" name="productId" th:value="${product.id}">
+                            <button type="submit" class="primary-button card-button">
+                                Adicionar
+                            </button>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

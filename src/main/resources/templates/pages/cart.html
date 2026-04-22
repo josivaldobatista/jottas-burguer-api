@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle}">Carrinho - Jotta's Burger</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-row">
+        <div>
+            <h1 class="logo">Jotta's Burger</h1>
+            <p class="header-user">
+                Logado como <strong th:text="${userName}">Usuário</strong>
+            </p>
+        </div>
+
+        <nav class="main-nav">
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/carrinho}">Carrinho</a>
+            <a th:href="@{/perfil}">Perfil</a>
+            <form th:action="@{/logout}" method="post" class="logout-form">
+                <button type="submit" class="logout-button">Sair</button>
+            </form>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h2>Meu carrinho</h2>
+        <p>Confira os itens adicionados antes de finalizar o pedido.</p>
+    </section>
+
+    <section th:if="${#lists.isEmpty(cartItems)}" class="empty-state">
+        <p>Seu carrinho está vazio.</p>
+    </section>
+
+    <section th:unless="${#lists.isEmpty(cartItems)}" class="cart-section">
+        <div class="cart-list">
+            <article th:each="item : ${cartItems}" class="cart-item-card">
+                <h3 th:text="${item.name}">Produto</h3>
+
+                <div class="quantity-controls">
+                    <form th:action="@{/carrinho/diminuir}" method="post">
+                        <input type="hidden" name="productId" th:value="${item.productId}">
+                        <button type="submit">-</button>
+                    </form>
+
+                    <span th:text="${item.quantity}">1</span>
+
+                    <form th:action="@{/carrinho/aumentar}" method="post">
+                        <input type="hidden" name="productId" th:value="${item.productId}">
+                        <button type="submit">+</button>
+                    </form>
+                </div>
+
+                <p>
+                    Preço unitário:
+                    <span th:text="${#numbers.formatCurrency(item.unitPrice)}"></span>
+                </p>
+
+                <p>
+                    Total:
+                    <span th:text="${#numbers.formatCurrency(item.totalPrice)}"></span>
+                </p>
+
+                <form th:action="@{/carrinho/remover}" method="post">
+                    <input type="hidden" name="productId" th:value="${item.productId}">
+                    <button class="remove-button">Remover</button>
+                </form>
+            </article>
+        </div>
+
+        <div class="cart-summary">
+            <h3>Resumo</h3>
+            <p>Total do pedido:</p>
+
+            <strong>
+                <span th:text="${#numbers.formatCurrency(totalAmount)}">R$ 0,00</span>
+            </strong>
+
+            <form th:action="@{/carrinho/finalizar}" method="post" class="finish-order-form">
+                <button type="submit" class="primary-button card-button">
+                    Finalizar pedido
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

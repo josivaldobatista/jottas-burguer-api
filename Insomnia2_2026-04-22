@@ -1,0 +1,3537 @@
+{
+	"log": {
+		"version": "1.2",
+		"creator": {
+			"name": "Insomnia REST Client",
+			"version": "insomnia.desktop.app:v12.5.0"
+		},
+		"entries": [
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 33.222,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/users/me",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 22 Apr 2026 13:23:58 GMT"
+						}
+					],
+					"content": {
+						"size": 169,
+						"mimeType": "application/json",
+						"text": "{\"id\":1,\"name\":\"Admin\",\"email\":\"admin@jottasburger.com\",\"role\":\"ADMIN\",\"active\":true,\"createdAt\":\"2026-04-22T13:23:00.481976Z\",\"updatedAt\":\"2026-04-22T13:23:00.481976Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 33.222,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "get me"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 231.114,
+				"request": {
+					"method": "PATCH",
+					"url": "http://localhost:8080/api/users/me/password",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n  \"currentPassword\": \"12345678\",\n  \"newPassword\": \"12345678\",\n  \"confirmNewPassword\": \"12345678\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 400,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Trace-Id",
+							"value": "692bb5f0-7db7-430c-8a10-a7ae453d9d7d"
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 22 Apr 2026 13:51:57 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						}
+					],
+					"content": {
+						"size": 227,
+						"mimeType": "application/json",
+						"text": "{\"timestamp\":\"2026-04-22T13:51:57.332290400Z\",\"status\":400,\"error\":\"Bad Request\",\"message\":\"New password must be different from current password\",\"path\":\"/api/users/me/password\",\"traceId\":\"692bb5f0-7db7-430c-8a10-a7ae453d9d7d\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 231.114,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "change Password"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 20.871000000000002,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8080/api/users/me",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"name\": \"Marcela Araujo\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 22 Apr 2026 13:24:44 GMT"
+						}
+					],
+					"content": {
+						"size": 185,
+						"mimeType": "application/json",
+						"text": "{\"id\":2,\"name\":\"Marcela Araujo\",\"email\":\"customer1@jottasburger.com\",\"role\":\"CUSTOMER\",\"active\":true,\"createdAt\":\"2026-04-22T13:24:02.874024Z\",\"updatedAt\":\"2026-04-22T13:24:02.874024Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 20.871000000000002,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "update me"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 179.862,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/me?page=0&size=10",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 07:59:37 GMT"
+						}
+					],
+					"content": {
+						"size": 1091,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":4,\"orderNumber\":\"ORD-1776757244256-CC101B52\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":7,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":8,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:44.264914Z\",\"updatedAt\":\"2026-04-21T07:40:44.264914Z\"},{\"id\":3,\"orderNumber\":\"ORD-1776757235396-16025FC4\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":5,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":6,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:35.415751Z\",\"updatedAt\":\"2026-04-21T07:40:35.415751Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalPages\":1,\"totalElements\":2,\"size\":10,\"number\":0,\"first\":true,\"numberOfElements\":2,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 179.862,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 15.029,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/me?status=DELIVERED&page=0&size=10",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 08:01:27 GMT"
+						}
+					],
+					"content": {
+						"size": 317,
+						"mimeType": "application/json",
+						"text": "{\"content\":[],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalPages\":0,\"totalElements\":0,\"size\":10,\"number\":0,\"first\":true,\"numberOfElements\":0,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":true}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 15.029,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search another status"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 19.333,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/me?page=0&size=5&sort=createdAt,desc",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 08:01:01 GMT"
+						}
+					],
+					"content": {
+						"size": 1089,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":4,\"orderNumber\":\"ORD-1776757244256-CC101B52\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":7,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":8,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:44.264914Z\",\"updatedAt\":\"2026-04-21T07:40:44.264914Z\"},{\"id\":3,\"orderNumber\":\"ORD-1776757235396-16025FC4\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":5,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":6,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:35.415751Z\",\"updatedAt\":\"2026-04-21T07:40:35.415751Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":5,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalPages\":1,\"totalElements\":2,\"size\":5,\"number\":0,\"first\":true,\"numberOfElements\":2,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 19.333,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search and sort desc"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 21.193,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/me?status=RECEIVED&page=0&size=10",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 08:00:14 GMT"
+						}
+					],
+					"content": {
+						"size": 1091,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":4,\"orderNumber\":\"ORD-1776757244256-CC101B52\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":7,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":8,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:44.264914Z\",\"updatedAt\":\"2026-04-21T07:40:44.264914Z\"},{\"id\":3,\"orderNumber\":\"ORD-1776757235396-16025FC4\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":5,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":6,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:35.415751Z\",\"updatedAt\":\"2026-04-21T07:40:35.415751Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalPages\":1,\"totalElements\":2,\"size\":10,\"number\":0,\"first\":true,\"numberOfElements\":2,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 21.193,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "filter by status"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 10503.104000000001,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/api/auth/register",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n  \"name\": \"Valdo\",\n  \"email\": \"valdo@example.com\",\n  \"password\": \"123456\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 201,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Trace-Id",
+							"value": "d9b0c881-ddd7-4870-8d8b-742a417f8bad"
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 22 Apr 2026 14:18:24 GMT"
+						}
+					],
+					"content": {
+						"size": 69,
+						"mimeType": "application/json",
+						"text": "{\"id\":2,\"name\":\"Valdo\",\"email\":\"valdo@example.com\",\"role\":\"CUSTOMER\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 10503.104000000001,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "create"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 38.008,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/search?page=0&size=10",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 09:38:48 GMT"
+						}
+					],
+					"content": {
+						"size": 2517,
+						"mimeType": "application/json",
+						"text": "{\"data\":[{\"id\":7,\"orderNumber\":\"ORD-1776762173512-872239D5\",\"status\":\"RECEIVED\",\"totalAmount\":50.00,\"items\":[{\"id\":11,\"productId\":5,\"productName\":\"Product 1776762173318\",\"unitPrice\":25.00,\"quantity\":2,\"totalPrice\":50.00}],\"createdAt\":\"2026-04-21T09:02:53.520202Z\",\"updatedAt\":\"2026-04-21T09:02:53.520202Z\"},{\"id\":6,\"orderNumber\":\"ORD-1776760660686-5302C525\",\"status\":\"RECEIVED\",\"totalAmount\":50.00,\"items\":[{\"id\":10,\"productId\":4,\"productName\":\"Product 1776760660502\",\"unitPrice\":25.00,\"quantity\":2,\"totalPrice\":50.00}],\"createdAt\":\"2026-04-21T08:37:40.695072Z\",\"updatedAt\":\"2026-04-21T08:37:40.695072Z\"},{\"id\":5,\"orderNumber\":\"ORD-1776760376212-D488E7E6\",\"status\":\"RECEIVED\",\"totalAmount\":5.80,\"items\":[{\"id\":9,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80}],\"createdAt\":\"2026-04-21T08:32:56.225227Z\",\"updatedAt\":\"2026-04-21T08:32:56.225227Z\"},{\"id\":4,\"orderNumber\":\"ORD-1776757244256-CC101B52\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":7,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":8,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:44.264914Z\",\"updatedAt\":\"2026-04-21T07:40:44.264914Z\"},{\"id\":3,\"orderNumber\":\"ORD-1776757235396-16025FC4\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":5,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":6,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:35.415751Z\",\"updatedAt\":\"2026-04-21T07:40:35.415751Z\"},{\"id\":2,\"orderNumber\":\"ORD-1776755650462-DF971C89\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":3,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":4,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:14:10.492511Z\",\"updatedAt\":\"2026-04-21T07:14:10.492511Z\"},{\"id\":1,\"orderNumber\":\"ORD-1776754666024-A5C3242D\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":1,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":2,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T06:57:46.041017Z\",\"updatedAt\":\"2026-04-21T06:57:46.041017Z\"}],\"page\":0,\"size\":10,\"totalElements\":7,\"totalPages\":1,\"first\":true,\"last\":true}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 38.008,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 22.275,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/me?page=0&size=10",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 09:01:25 GMT"
+						}
+					],
+					"content": {
+						"size": 1091,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":4,\"orderNumber\":\"ORD-1776757244256-CC101B52\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":7,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":8,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:44.264914Z\",\"updatedAt\":\"2026-04-21T07:40:44.264914Z\"},{\"id\":3,\"orderNumber\":\"ORD-1776757235396-16025FC4\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":5,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":6,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:35.415751Z\",\"updatedAt\":\"2026-04-21T07:40:35.415751Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalElements\":2,\"totalPages\":1,\"size\":10,\"number\":0,\"first\":true,\"numberOfElements\":2,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 22.275,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "teste"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 21.273,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/search?status=RECEIVED&page=0&size=5&sort=createdAt,desc",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 09:42:22 GMT"
+						}
+					],
+					"content": {
+						"size": 2313,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":10,\"orderNumber\":\"ORD-1776675113654-7366AFEE\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":19,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":20,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:53.659224Z\",\"updatedAt\":\"2026-04-20T08:51:53.659224Z\"},{\"id\":9,\"orderNumber\":\"ORD-1776675113256-6D879BBC\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":17,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":18,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:53.261978Z\",\"updatedAt\":\"2026-04-20T08:51:53.261978Z\"},{\"id\":8,\"orderNumber\":\"ORD-1776675112806-DF18D74C\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":15,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":16,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:52.811254Z\",\"updatedAt\":\"2026-04-20T08:51:52.811254Z\"},{\"id\":7,\"orderNumber\":\"ORD-1776675112313-A90F3390\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":13,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":14,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:52.319230Z\",\"updatedAt\":\"2026-04-20T08:51:52.319230Z\"},{\"id\":6,\"orderNumber\":\"ORD-1776675111772-988D22C4\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":11,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":12,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:51.776983Z\",\"updatedAt\":\"2026-04-20T08:51:51.776983Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":5,\"sort\":{\"empty\":false,\"unsorted\":false,\"sorted\":true},\"offset\":0,\"unpaged\":false,\"paged\":true},\"last\":false,\"totalElements\":10,\"totalPages\":2,\"size\":5,\"number\":0,\"first\":true,\"numberOfElements\":5,\"sort\":{\"empty\":false,\"unsorted\":false,\"sorted\":true},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 21.273,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Ordenação explícita"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 25.444000000000003,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/search?status=RECEIVED&page=0&size=10",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 09:43:12 GMT"
+						}
+					],
+					"content": {
+						"size": 4301,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":10,\"orderNumber\":\"ORD-1776675113654-7366AFEE\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":19,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":20,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:53.659224Z\",\"updatedAt\":\"2026-04-20T08:51:53.659224Z\"},{\"id\":9,\"orderNumber\":\"ORD-1776675113256-6D879BBC\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":17,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":18,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:53.261978Z\",\"updatedAt\":\"2026-04-20T08:51:53.261978Z\"},{\"id\":8,\"orderNumber\":\"ORD-1776675112806-DF18D74C\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":15,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":16,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:52.811254Z\",\"updatedAt\":\"2026-04-20T08:51:52.811254Z\"},{\"id\":7,\"orderNumber\":\"ORD-1776675112313-A90F3390\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":13,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":14,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:52.319230Z\",\"updatedAt\":\"2026-04-20T08:51:52.319230Z\"},{\"id\":6,\"orderNumber\":\"ORD-1776675111772-988D22C4\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":11,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":12,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:51.776983Z\",\"updatedAt\":\"2026-04-20T08:51:51.776983Z\"},{\"id\":5,\"orderNumber\":\"ORD-1776675111231-D4699B70\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":9,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":10,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:51.235822Z\",\"updatedAt\":\"2026-04-20T08:51:51.235822Z\"},{\"id\":4,\"orderNumber\":\"ORD-1776675110670-26802097\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":7,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":8,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:50.678258Z\",\"updatedAt\":\"2026-04-20T08:51:50.678258Z\"},{\"id\":3,\"orderNumber\":\"ORD-1776675110045-DF0A2302\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":5,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":6,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:50.050173Z\",\"updatedAt\":\"2026-04-20T08:51:50.050173Z\"},{\"id\":2,\"orderNumber\":\"ORD-1776675109347-A6F66E8F\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":3,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":4,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:49.353398Z\",\"updatedAt\":\"2026-04-20T08:51:49.353398Z\"},{\"id\":1,\"orderNumber\":\"ORD-1776675107263-B391E59F\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":1,\"productId\":1,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":2,\"productId\":2,\"productName\":\"Sorvete de Abacaxi\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-20T08:51:47.270781Z\",\"updatedAt\":\"2026-04-20T08:51:47.270781Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"unsorted\":false,\"sorted\":true},\"offset\":0,\"unpaged\":false,\"paged\":true},\"last\":true,\"totalElements\":10,\"totalPages\":1,\"size\":10,\"number\":0,\"first\":true,\"numberOfElements\":10,\"sort\":{\"empty\":false,\"unsorted\":false,\"sorted\":true},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 25.444000000000003,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search by status"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 51.674,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/products/search?page=0&size=10",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 08:53:19 GMT"
+						}
+					],
+					"content": {
+						"size": 2661,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":1,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:19.345521Z\",\"updatedAt\":\"2026-04-20T08:50:19.345521Z\"},{\"id\":2,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:25.924220Z\",\"updatedAt\":\"2026-04-20T08:50:25.924220Z\"},{\"id\":3,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:27.672708Z\",\"updatedAt\":\"2026-04-20T08:50:27.672708Z\"},{\"id\":4,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:28.336972Z\",\"updatedAt\":\"2026-04-20T08:50:28.336972Z\"},{\"id\":5,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:28.975045Z\",\"updatedAt\":\"2026-04-20T08:50:28.975045Z\"},{\"id\":6,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:29.597315Z\",\"updatedAt\":\"2026-04-20T08:50:29.597315Z\"},{\"id\":7,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:30.188326Z\",\"updatedAt\":\"2026-04-20T08:50:30.188326Z\"},{\"id\":8,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:30.747323Z\",\"updatedAt\":\"2026-04-20T08:50:30.747323Z\"},{\"id\":9,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:31.268366Z\",\"updatedAt\":\"2026-04-20T08:50:31.268366Z\"},{\"id\":10,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:31.819954Z\",\"updatedAt\":\"2026-04-20T08:50:31.819954Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":false,\"totalElements\":20,\"totalPages\":2,\"size\":10,\"number\":0,\"first\":true,\"numberOfElements\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 51.674,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 26.801,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/products/search?name=sorvete&page=0&size=5",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 08:55:35 GMT"
+						}
+					],
+					"content": {
+						"size": 1487,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":2,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:25.924220Z\",\"updatedAt\":\"2026-04-20T08:50:25.924220Z\"},{\"id\":3,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:27.672708Z\",\"updatedAt\":\"2026-04-20T08:50:27.672708Z\"},{\"id\":4,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:28.336972Z\",\"updatedAt\":\"2026-04-20T08:50:28.336972Z\"},{\"id\":5,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:28.975045Z\",\"updatedAt\":\"2026-04-20T08:50:28.975045Z\"},{\"id\":1,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:19.345521Z\",\"updatedAt\":\"2026-04-20T08:50:19.345521Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":5,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":false,\"totalElements\":19,\"totalPages\":4,\"size\":5,\"number\":0,\"first\":true,\"numberOfElements\":5,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 26.801,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search by name"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 11.419,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/products/search?categoryId=2&page=0&size=10",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 08:59:01 GMT"
+						}
+					],
+					"content": {
+						"size": 537,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":21,\"name\":\"String String\",\"description\":\"String String String\",\"price\":2.90,\"active\":true,\"categoryId\":2,\"categoryName\":\"Pizzas\",\"createdAt\":\"2026-04-20T08:58:54.554090Z\",\"updatedAt\":\"2026-04-20T08:58:54.554090Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalElements\":1,\"totalPages\":1,\"size\":10,\"number\":0,\"first\":true,\"numberOfElements\":1,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 11.419,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search by categoryId"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 14.99,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/products/search?name=x&active=true&categoryId=1&page=0&size=5&sort=price,desc",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 08:59:37 GMT"
+						}
+					],
+					"content": {
+						"size": 1487,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":2,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:25.924220Z\",\"updatedAt\":\"2026-04-20T08:50:25.924220Z\"},{\"id\":3,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:27.672708Z\",\"updatedAt\":\"2026-04-20T08:50:27.672708Z\"},{\"id\":4,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:28.336972Z\",\"updatedAt\":\"2026-04-20T08:50:28.336972Z\"},{\"id\":5,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:28.975045Z\",\"updatedAt\":\"2026-04-20T08:50:28.975045Z\"},{\"id\":1,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:19.345521Z\",\"updatedAt\":\"2026-04-20T08:50:19.345521Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":5,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":false,\"totalElements\":19,\"totalPages\":4,\"size\":5,\"number\":0,\"first\":true,\"numberOfElements\":5,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 14.99,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search combinado"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 22.877000000000002,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/products/search?active=true&page=0&size=10",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 08:56:05 GMT"
+						}
+					],
+					"content": {
+						"size": 2661,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":1,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:19.345521Z\",\"updatedAt\":\"2026-04-20T08:50:19.345521Z\"},{\"id\":2,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:25.924220Z\",\"updatedAt\":\"2026-04-20T08:50:25.924220Z\"},{\"id\":3,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:27.672708Z\",\"updatedAt\":\"2026-04-20T08:50:27.672708Z\"},{\"id\":4,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:28.336972Z\",\"updatedAt\":\"2026-04-20T08:50:28.336972Z\"},{\"id\":5,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:28.975045Z\",\"updatedAt\":\"2026-04-20T08:50:28.975045Z\"},{\"id\":6,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:29.597315Z\",\"updatedAt\":\"2026-04-20T08:50:29.597315Z\"},{\"id\":7,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:30.188326Z\",\"updatedAt\":\"2026-04-20T08:50:30.188326Z\"},{\"id\":8,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:30.747323Z\",\"updatedAt\":\"2026-04-20T08:50:30.747323Z\"},{\"id\":9,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:31.268366Z\",\"updatedAt\":\"2026-04-20T08:50:31.268366Z\"},{\"id\":10,\"name\":\"Sorvete de Abacaxi\",\"description\":\"Delicioso Sorvete de Abacaxi\",\"price\":2.90,\"active\":true,\"categoryId\":1,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-20T08:50:31.819954Z\",\"updatedAt\":\"2026-04-20T08:50:31.819954Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":false,\"totalElements\":20,\"totalPages\":2,\"size\":10,\"number\":0,\"first\":true,\"numberOfElements\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 22.877000000000002,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "search by active"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 188.249,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/api/auth/login",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n  \"email\": \"admin@jottasburger.com\",\n  \"password\": \"Admin@123\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Trace-Id",
+							"value": "7f56c191-c389-42a9-8911-d3743c5b6a90"
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 22 Apr 2026 15:23:28 GMT"
+						}
+					],
+					"content": {
+						"size": 252,
+						"mimeType": "application/json",
+						"text": "{\"accessToken\":\"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA\",\"tokenType\":\"Bearer\",\"expiresIn\":3600}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 188.249,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "login"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 21.011,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/api/categories",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n  \"name\": \"Bebidas\"\n}\n"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 201,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Trace-Id",
+							"value": "044810a8-e216-4839-af12-396352896d54"
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 22 Apr 2026 15:23:46 GMT"
+						}
+					],
+					"content": {
+						"size": 129,
+						"mimeType": "application/json",
+						"text": "{\"id\":4,\"name\":\"Bebidas\",\"active\":true,\"createdAt\":\"2026-04-22T15:23:46.959568100Z\",\"updatedAt\":\"2026-04-22T15:23:46.959568100Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 21.011,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "create"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 21.357,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/categories/1",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 19 Apr 2026 23:46:32 GMT"
+						}
+					],
+					"content": {
+						"size": 129,
+						"mimeType": "application/json",
+						"text": "{\"id\":1,\"name\":\"Hambúrgueres\",\"active\":true,\"createdAt\":\"2026-04-19T20:54:34.954880Z\",\"updatedAt\":\"2026-04-19T20:54:34.954880Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 21.357,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "find by id"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 0,
+				"request": {
+					"method": "PATCH",
+					"url": "http://localhost:8080/api/categories/1/deactivate",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 0,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"content": {
+						"size": 0,
+						"mimeType": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 0,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "deactivate"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 61.23,
+				"request": {
+					"method": "PATCH",
+					"url": "http://localhost:8080/api/categories/1/activate",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 403,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Length",
+							"value": "0"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 00:14:00 GMT"
+						}
+					],
+					"content": {
+						"size": 0,
+						"mimeType": "",
+						"text": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 61.23,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "activate"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 20.167,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8080/api/categories/1",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"name\": \"Teste\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 19 Apr 2026 23:46:40 GMT"
+						}
+					],
+					"content": {
+						"size": 121,
+						"mimeType": "application/json",
+						"text": "{\"id\":1,\"name\":\"Teste\",\"active\":true,\"createdAt\":\"2026-04-19T20:54:34.954880Z\",\"updatedAt\":\"2026-04-19T20:54:34.954880Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 20.167,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "update"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 170.13,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/categories/active",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 00:15:01 GMT"
+						}
+					],
+					"content": {
+						"size": 2,
+						"mimeType": "application/json",
+						"text": "[]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 170.13,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "find all active"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 29.727,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/api/orders",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n  \"items\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 2\n    },\n    {\n      \"productId\": 2,\n      \"quantity\": 1\n    }\n  ]\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 201,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 07:40:44 GMT"
+						}
+					],
+					"content": {
+						"size": 392,
+						"mimeType": "application/json",
+						"text": "{\"id\":4,\"orderNumber\":\"ORD-1776757244256-CC101B52\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":7,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":8,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:44.264913800Z\",\"updatedAt\":\"2026-04-21T07:40:44.264913800Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 29.727,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "create"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 23.584,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/1",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 19 Apr 2026 23:47:01 GMT"
+						}
+					],
+					"content": {
+						"size": 389,
+						"mimeType": "application/json",
+						"text": "{\"id\":1,\"orderNumber\":\"ORD-1776632256770-C7E66F0B\",\"status\":\"CANCELED\",\"totalAmount\":99.70,\"items\":[{\"id\":1,\"productId\":1,\"productName\":\"Cheeseburger\",\"unitPrice\":19.90,\"quantity\":2,\"totalPrice\":39.80},{\"id\":2,\"productId\":2,\"productName\":\"Pizza Queijo\",\"unitPrice\":59.90,\"quantity\":1,\"totalPrice\":59.90}],\"createdAt\":\"2026-04-19T20:57:36.799627Z\",\"updatedAt\":\"2026-04-19T23:07:12.580520Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 23.584,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "find By Id"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 16.884,
+				"request": {
+					"method": "PATCH",
+					"url": "http://localhost:8080/api/orders/3/status",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"status\": \"IN_PREPARATION\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 19 Apr 2026 23:47:36 GMT"
+						}
+					],
+					"content": {
+						"size": 395,
+						"mimeType": "application/json",
+						"text": "{\"id\":3,\"orderNumber\":\"ORD-1776635930396-54E12F47\",\"status\":\"IN_PREPARATION\",\"totalAmount\":99.70,\"items\":[{\"id\":5,\"productId\":1,\"productName\":\"Cheeseburger\",\"unitPrice\":19.90,\"quantity\":2,\"totalPrice\":39.80},{\"id\":6,\"productId\":2,\"productName\":\"Pizza Queijo\",\"unitPrice\":59.90,\"quantity\":1,\"totalPrice\":59.90}],\"createdAt\":\"2026-04-19T21:58:50.405013Z\",\"updatedAt\":\"2026-04-19T21:58:50.405013Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 16.884,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "update Status"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 65.595,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 09:38:43 GMT"
+						}
+					],
+					"content": {
+						"size": 2431,
+						"mimeType": "application/json",
+						"text": "[{\"id\":7,\"orderNumber\":\"ORD-1776762173512-872239D5\",\"status\":\"RECEIVED\",\"totalAmount\":50.00,\"items\":[{\"id\":11,\"productId\":5,\"productName\":\"Product 1776762173318\",\"unitPrice\":25.00,\"quantity\":2,\"totalPrice\":50.00}],\"createdAt\":\"2026-04-21T09:02:53.520202Z\",\"updatedAt\":\"2026-04-21T09:02:53.520202Z\"},{\"id\":6,\"orderNumber\":\"ORD-1776760660686-5302C525\",\"status\":\"RECEIVED\",\"totalAmount\":50.00,\"items\":[{\"id\":10,\"productId\":4,\"productName\":\"Product 1776760660502\",\"unitPrice\":25.00,\"quantity\":2,\"totalPrice\":50.00}],\"createdAt\":\"2026-04-21T08:37:40.695072Z\",\"updatedAt\":\"2026-04-21T08:37:40.695072Z\"},{\"id\":5,\"orderNumber\":\"ORD-1776760376212-D488E7E6\",\"status\":\"RECEIVED\",\"totalAmount\":5.80,\"items\":[{\"id\":9,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80}],\"createdAt\":\"2026-04-21T08:32:56.225227Z\",\"updatedAt\":\"2026-04-21T08:32:56.225227Z\"},{\"id\":4,\"orderNumber\":\"ORD-1776757244256-CC101B52\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":8,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90},{\"id\":7,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80}],\"createdAt\":\"2026-04-21T07:40:44.264914Z\",\"updatedAt\":\"2026-04-21T07:40:44.264914Z\"},{\"id\":3,\"orderNumber\":\"ORD-1776757235396-16025FC4\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":6,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90},{\"id\":5,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80}],\"createdAt\":\"2026-04-21T07:40:35.415751Z\",\"updatedAt\":\"2026-04-21T07:40:35.415751Z\"},{\"id\":2,\"orderNumber\":\"ORD-1776755650462-DF971C89\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":4,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90},{\"id\":3,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80}],\"createdAt\":\"2026-04-21T07:14:10.492511Z\",\"updatedAt\":\"2026-04-21T07:14:10.492511Z\"},{\"id\":1,\"orderNumber\":\"ORD-1776754666024-A5C3242D\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":1,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":2,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T06:57:46.041017Z\",\"updatedAt\":\"2026-04-21T06:57:46.041017Z\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 65.595,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "find All"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 206.738,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/orders/me",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 09:02:15 GMT"
+						}
+					],
+					"content": {
+						"size": 1091,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":4,\"orderNumber\":\"ORD-1776757244256-CC101B52\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":7,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":8,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:44.264914Z\",\"updatedAt\":\"2026-04-21T07:40:44.264914Z\"},{\"id\":3,\"orderNumber\":\"ORD-1776757235396-16025FC4\",\"status\":\"RECEIVED\",\"totalAmount\":8.70,\"items\":[{\"id\":5,\"productId\":1,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":2,\"totalPrice\":5.80},{\"id\":6,\"productId\":2,\"productName\":\"String String\",\"unitPrice\":2.90,\"quantity\":1,\"totalPrice\":2.90}],\"createdAt\":\"2026-04-21T07:40:35.415751Z\",\"updatedAt\":\"2026-04-21T07:40:35.415751Z\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalElements\":2,\"totalPages\":1,\"size\":10,\"number\":0,\"first\":true,\"numberOfElements\":2,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 206.738,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "me"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 16.764999999999997,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/api/products",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n  \"name\": \"String String\",\n  \"description\": \"String String String\",\n  \"price\": 2.90,\n\t\"categoryId\": 3\n}\n"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 201,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 21 Apr 2026 06:57:32 GMT"
+						}
+					],
+					"content": {
+						"size": 230,
+						"mimeType": "application/json",
+						"text": "{\"id\":3,\"name\":\"String String\",\"description\":\"String String String\",\"price\":2.90,\"active\":true,\"categoryId\":3,\"categoryName\":\"Hamburgueres\",\"createdAt\":\"2026-04-21T06:57:32.609973400Z\",\"updatedAt\":\"2026-04-21T06:57:32.609973400Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 16.764999999999997,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "create"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 11.435,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/products/3",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 19 Apr 2026 23:49:01 GMT"
+						}
+					],
+					"content": {
+						"size": 233,
+						"mimeType": "application/json",
+						"text": "{\"id\":3,\"name\":\"Sorvete de Morango\",\"description\":\"Delicioso Sorvete de morando\",\"price\":2.90,\"active\":true,\"categoryId\":4,\"categoryName\":\"Sorvetes\",\"createdAt\":\"2026-04-19T23:48:30.213227Z\",\"updatedAt\":\"2026-04-19T23:48:30.213227Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 11.435,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "find by id"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 17.045,
+				"request": {
+					"method": "PATCH",
+					"url": "http://localhost:8080/api/products/1/deactivate",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 204,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 19 Apr 2026 20:21:12 GMT"
+						}
+					],
+					"content": {
+						"size": 0,
+						"mimeType": "",
+						"text": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 17.045,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "deactivate"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 12.028,
+				"request": {
+					"method": "PATCH",
+					"url": "http://localhost:8080/api/products/1/activate",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 204,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 19 Apr 2026 20:21:29 GMT"
+						}
+					],
+					"content": {
+						"size": 0,
+						"mimeType": "",
+						"text": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 12.028,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "activate"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 26.564999999999998,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8080/api/products/1",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"name\": \"TESTE\",\n\t\"description\": \"TESTE TESTE\",\n\t\"price\": 73.71,\n\t\"categoryId\": 1\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 19 Apr 2026 20:19:35 GMT"
+						}
+					],
+					"content": {
+						"size": 202,
+						"mimeType": "application/json",
+						"text": "{\"id\":1,\"name\":\"TESTE\",\"description\":\"TESTE TESTE\",\"price\":73.71,\"active\":true,\"categoryId\":1,\"categoryName\":\"Laches\",\"createdAt\":\"2026-04-19T20:11:46.420920Z\",\"updatedAt\":\"2026-04-19T20:11:46.420920Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 26.564999999999998,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "update"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 10.796999999999999,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/products",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBqb3R0YXNidXJnZXIuY29tIiwiaWF0IjoxNzc2ODcxNDA4LCJleHAiOjE3NzY4NzUwMDh9.eBVBt3dFTLZqK5-QAJi4pbLxVzpRaTkFVWyjM1A6mFLF287lZpQoY5akY58ZBCz0taD4lAMTwpn8uHR2ak59AA"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 20 Apr 2026 08:45:53 GMT"
+						}
+					],
+					"content": {
+						"size": 2,
+						"mimeType": "application/json",
+						"text": "[]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 10.796999999999999,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "find all"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 10.225,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/products/active",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
+							"name": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 19 Apr 2026 20:17:00 GMT"
+						}
+					],
+					"content": {
+						"size": 529,
+						"mimeType": "application/json",
+						"text": "[{\"id\":2,\"name\":\"Cheeseburger\",\"description\":\"Delicioso hambúrguer com queijo cheddar, alface e tomate.\",\"price\":19.90,\"active\":true,\"categoryId\":2,\"categoryName\":\"Hambúrgueres\",\"createdAt\":\"2026-04-19T20:12:08.460422Z\",\"updatedAt\":\"2026-04-19T20:12:08.460422Z\"},{\"id\":1,\"name\":\"Cheeseburger\",\"description\":\"Delicioso hambúrguer com queijo cheddar, alface e tomate.\",\"price\":19.90,\"active\":true,\"categoryId\":2,\"categoryName\":\"Hambúrgueres\",\"createdAt\":\"2026-04-19T20:11:46.420920Z\",\"updatedAt\":\"2026-04-19T20:11:46.420920Z\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 10.225,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "find All Active"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 44.746,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/api/v1/customers",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n  \"name\": \"Helena Batista\",\n  \"email\": \"helednsdea@example.com\",\n  \"phone\": \"11987654321\",\n  \"address\": {\n    \"street\": \"Rua das Flores\",\n    \"number\": \"123\",\n    \"complement\": \"Apto 45\",\n    \"neighborhood\": \"Centro\",\n    \"city\": \"Taboão da Serra\",\n    \"state\": \"SP\",\n    \"zipCode\": \"06753-000\"\n  }\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 201,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Trace-Id",
+							"value": "a8fb30fa-0a26-4de3-8de6-875616c34ef2"
+						},
+						{
+							"name": "Location",
+							"value": "/api/v1/customers/96d07883-1844-410b-b475-60732c6bbf1c"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Fri, 17 Apr 2026 10:22:43 GMT"
+						}
+					],
+					"content": {
+						"size": 330,
+						"mimeType": "application/json",
+						"text": "{\"id\":\"96d07883-1844-410b-b475-60732c6bbf1c\",\"name\":\"Helena Batista\",\"email\":\"helednsdea@example.com\",\"phone\":\"11987654321\",\"address\":{\"street\":\"Rua das Flores\",\"number\":\"123\",\"complement\":\"Apto 45\",\"neighborhood\":\"Centro\",\"city\":\"Taboão da Serra\",\"state\":\"SP\",\"zipCode\":\"06753-000\"},\"createdAt\":\"2026-04-17T10:22:43.393912300Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 44.746,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "create"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 0,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/v1/customers/bf691270-f284-41ea-812f-b5aa474b204f",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 0,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"content": {
+						"size": 0,
+						"mimeType": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 0,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "find by UUID"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 0,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8080/api/v1/customers/delete/bf691270-f284-41ea-812f-b5aa474b204f",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 0,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"content": {
+						"size": 0,
+						"mimeType": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 0,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "delete"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 0,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8080/api/v1/customers/bf691270-f284-41ea-812f-b5aa474b204f",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 0,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"content": {
+						"size": 0,
+						"mimeType": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 0,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "soft delete"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 20.405,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8080/api/v1/customers/bf691270-f284-41ea-812f-b5aa474b204f",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n  \"name\": \"Jonas Brothers\",\n  \"email\": \"Jonas-Brother@example.com\",\n  \"phone\": \"11987654321\",\n  \"address\": {\n    \"street\": \"Rua das Flores\",\n    \"number\": \"44\",\n    \"complement\": \"Apto 45\",\n    \"neighborhood\": \"Centro\",\n    \"city\": \"Taboão da Serra\",\n    \"state\": \"SP\",\n    \"zipCode\": \"06753-000\"\n  }\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "X-Trace-Id",
+							"value": "3d0f0cea-4b24-4a65-9ac3-cc169796697d"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Thu, 16 Apr 2026 23:26:35 GMT"
+						}
+					],
+					"content": {
+						"size": 329,
+						"mimeType": "application/json",
+						"text": "{\"id\":\"bf691270-f284-41ea-812f-b5aa474b204f\",\"name\":\"Jonas Brothers\",\"email\":\"Jonas-Brother@example.com\",\"phone\":\"11987654321\",\"address\":{\"street\":\"Rua das Flores\",\"number\":\"44\",\"complement\":\"Apto 45\",\"neighborhood\":\"Centro\",\"city\":\"Taboão da Serra\",\"state\":\"SP\",\"zipCode\":\"06753-000\"},\"createdAt\":\"2026-04-16T23:25:39.162085Z\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 20.405,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "update"
+			},
+			{
+				"startedDateTime": "2026-04-22T15:25:20.192Z",
+				"time": 0,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/api/v1/customers",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/12.5.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 0,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"content": {
+						"size": 0,
+						"mimeType": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 0,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "find by all"
+			}
+		]
+	}
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - Jotta's Burger</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-row">
+        <h1 class="logo">Jotta's Burger</h1>
+        <nav class="main-nav">
+            <a th:href="@{/}">Início</a>
+            <a th:href="@{/login}">Login</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="auth-container">
+        <div class="auth-card">
+            <h2>Entrar</h2>
+            <p class="auth-subtitle">Use sua conta para acessar a área interna.</p>
+
+            <div th:if="${param.error}" class="alert-error">
+                Email ou senha inválidos.
+            </div>
+
+            <div th:if="${param.logout}" class="alert-success">
+                Você saiu da conta com sucesso.
+            </div>
+
+            <form th:action="@{/login}" method="post" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Email</label>
+                    <input id="username" name="username" type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input id="password" name="password" type="password" required>
+                </div>
+
+                <button type="submit" class="primary-button">Entrar</button>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>

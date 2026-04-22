@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle}">Jotta's Burger</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-row">
+        <div>
+            <h1 class="logo">Jotta's Burger</h1>
+            <p class="header-user">Sistema web da hamburgueria</p>
+        </div>
+
+        <nav class="main-nav">
+            <a th:href="@{/}">Início</a>
+            <a th:href="@{/login}">Login</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="landing-hero">
+        <div class="landing-hero-content">
+            <span class="hero-badge">Hamburgueria artesanal</span>
+            <h2>Bem-vindo à Jotta's Burger</h2>
+            <p class="landing-description">
+                Um sistema pensado para demonstrar autenticação, cardápio,
+                carrinho, pedidos e organização de uma hamburgueria moderna.
+            </p>
+
+            <div class="landing-actions">
+                <a class="primary-link-button" th:href="@{/login}">Entrar no sistema</a>
+                <a class="secondary-link-button" th:href="@{/swagger-ui/index.html}">Ver API</a>
+            </div>
+        </div>
+
+        <div class="landing-highlight-card">
+            <h3>O que você encontra aqui</h3>
+            <ul class="feature-list">
+                <li>Login com área autenticada</li>
+                <li>Cardápio organizado por categorias</li>
+                <li>Carrinho de compras simples</li>
+                <li>Criação e acompanhamento de pedidos</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="landing-grid">
+        <article class="landing-card">
+            <h3>Cardápio organizado</h3>
+            <p>
+                Navegue por categorias e produtos ativos de forma simples,
+                clara e com foco na experiência do usuário.
+            </p>
+        </article>
+
+        <article class="landing-card">
+            <h3>Fluxo real de pedidos</h3>
+            <p>
+                O sistema permite simular um fluxo completo, desde login até
+                montagem do carrinho e criação do pedido.
+            </p>
+        </article>
+
+        <article class="landing-card">
+            <h3>Backend robusto</h3>
+            <p>
+                Aplicação construída com Spring Boot, JPA, Spring Security,
+                Thymeleaf e integração com a API documentada via OpenAPI.
+            </p>
+        </article>
+    </section>
+
+    <section class="landing-bottom-banner">
+        <div>
+            <h3>Pronto para acessar?</h3>
+            <p>Entre na aplicação e veja o fluxo funcionando na prática.</p>
+        </div>
+
+        <a class="primary-link-button" th:href="@{/login}">Fazer login</a>
+    </section>
+</main>
+
+</body>
+</html>
