@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jfb.jottasburger.auth.dto.LoginRequest;
 import com.jfb.jottasburger.auth.dto.RegisterRequest;
+import com.jfb.jottasburger.support.PostgresIntegrationTestBase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -18,10 +19,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
 @AutoConfigureMockMvc
-@ActiveProfiles("dev")
-class OrderIntegrationTest {
+class OrderIntegrationTest extends PostgresIntegrationTestBase {
 
     @Autowired
     private MockMvc mockMvc;

@@ -2,6 +2,7 @@ package com.jfb.jottasburger.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jfb.jottasburger.auth.dto.LoginRequest;
+import com.jfb.jottasburger.support.PostgresIntegrationTestBase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,9 +13,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest
 @AutoConfigureMockMvc
-class AuthIntegrationTest {
+class AuthIntegrationTest extends PostgresIntegrationTestBase {
 
     @Autowired
     private MockMvc mockMvc;
